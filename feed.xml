@@ -1,5 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-07-23T21:54:18+00:00</updated><id>/</id><title type="html">Watir Project</title><subtitle>Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</subtitle><entry><title type="html">Refreshed Website</title><link href="/refreshed-website" rel="alternate" type="text/html" title="Refreshed Website" /><published>2018-07-23T00:00:00+00:00</published><updated>2018-07-23T00:00:00+00:00</updated><id>/refreshed-website</id><content type="html" xml:base="/refreshed-website">&lt;p&gt;Yes, the website looks a little different! We got some professional help to tidy things up and add a few new features.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-07-24T19:03:31+00:00</updated><id>/</id><title type="html">Watir Project</title><subtitle>Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</subtitle><entry><title type="html">Watir 6.12</title><link href="/watir-6-12" rel="alternate" type="text/html" title="Watir 6.12" /><published>2018-07-24T00:00:00+00:00</published><updated>2018-07-24T00:00:00+00:00</updated><id>/watir-6-12</id><content type="html" xml:base="/watir-6-12">&lt;p&gt;Watir 6.12.0 is now available on RubyGems. Three new contributors to Watir and several great new features available.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.12&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;new-contributors&quot;&gt;New Contributors&lt;/h3&gt;
+
+&lt;p&gt;First of all, thank you for taking the time to contribute:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Aleksandar Kostadinov (akostad)&lt;/li&gt;
+  &lt;li&gt;Gijs Paulides (sjieg)&lt;/li&gt;
+  &lt;li&gt;John Fitisoff (jfitisoff)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;locating-elements-with-custom-attributes&quot;&gt;Locating Elements with Custom Attributes&lt;/h3&gt;
+
+&lt;p&gt;We recently allowed elements to be located with non-HTML5 compliant attributes.
+These were required to &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; instances like all other locators.&lt;/p&gt;
+
+&lt;p&gt;This element:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;custom-attribute=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Foo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;can be located with this code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;custom_attribute: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Since &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; instances can’t have dashes, and most attributes use dashes instead 
+of underscores, we convert underscores to dashes. That means this element could
+not be located:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;custom_attribute=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Foo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To allow for underscores in custom attributes, Watir now supports 
+custom attributes as keys with &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; instances:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;custom_attribute&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;additional-element-features&quot;&gt;Additional Element Features&lt;/h3&gt;
+
+&lt;p&gt;Get &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; of &lt;code class=&quot;highlighter-rouge&quot;&gt;Element&lt;/code&gt; from an &lt;code class=&quot;highlighter-rouge&quot;&gt;ElementCollection&lt;/code&gt; when using a &lt;code class=&quot;highlighter-rouge&quot;&gt;Range&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;divs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Get attribute values with &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; as well as &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; values&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;attribute_value&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:data_type&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#flash&lt;/code&gt; can do a bunch more interesting things:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:rainbow&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:slow&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:fast&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:long&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;blue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;logger&quot;&gt;Logger&lt;/h3&gt;
+
+&lt;p&gt;Users can now ignore specific warnings thrown by the Watir Logger.&lt;/p&gt;
+
+&lt;p&gt;As we move toward Watir 7, we are deprecating a number of features
+and throwing warnings that look like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;2018-07-23 02:12:37 WARN Watir &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;DEPRECATION] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;wait_while_present&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Watir::Window#wait_while_present is deprecated. Use Watir::Window#wait_while&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&amp;amp;:present?&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; instead.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you want to ignore this specific warning in your tests:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Watir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:foo&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you want to ignore all deprecation warnings in your tests:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Watir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:deprecations&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;waits&quot;&gt;Waits&lt;/h3&gt;
+
+&lt;p&gt;Message values for waits can now be instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; instead of just &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;waiting for &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait_until&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;message: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:present?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Also &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#wait_while_present&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#wait_until_present&lt;/code&gt; now have
+slightly different behaviors from the “to_proc” syntax of &lt;code class=&quot;highlighter-rouge&quot;&gt;wait_while(&amp;amp;:present?)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;wait_until(&amp;amp;:present?)&lt;/code&gt;.
+For most situations you want to use this latter syntax.&lt;/p&gt;
+
+&lt;p&gt;But what if you have this element:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;here&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Foo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and you locate it with this code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;class: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;here&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and then some dynamic event caused the element class to change:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;not-here&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Foo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Because of how Watir caches elements for performance reasons, this will time out,
+because Watir will just keep verifying that the cached element is still there:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait_while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:present?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In this case we want the element to be looked up from scratch during the polling, 
+which is what this does:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait_while_present&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Similarly for &lt;code class=&quot;highlighter-rouge&quot;&gt;#wait_until_present&lt;/code&gt;, the scenario is when an element is located, then goes away,
+and you want to wait for it to come back.&lt;/p&gt;
+
+&lt;p&gt;This will throw a Stale Element exception:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait_until&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:present?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will return when the element has come back:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait_until_present&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;deprecations&quot;&gt;Deprecations&lt;/h3&gt;
+
+&lt;p&gt;1.  Don’t use &lt;code class=&quot;highlighter-rouge&quot;&gt;#present?&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;#visible?&lt;/code&gt; if you need to know if an element has gone stale, use
+&lt;code class=&quot;highlighter-rouge&quot;&gt;#stale?&lt;/code&gt; for this. Right now calling the same method multiple times can result in different
+values even when the state of the DOM has not changed, which is undesirable.&lt;/p&gt;
+
+&lt;p&gt;2.  Don’t use ordered parameters to locate elements.
+All Watir location needs to be done as part of a &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash&lt;/code&gt;. This increases flexibility
+to easily allow adding additional locators in the same selector and to improve
+consistency across code bases.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Bad:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;how&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;what&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Good:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;how: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;what&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;3.  I wrote a &lt;a href=&quot;http://watir.com/element-existentialism/&quot;&gt;whole blog post&lt;/a&gt; on how we are changing &lt;code class=&quot;highlighter-rouge&quot;&gt;#visible?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;4.  I discussed above under what special circumstances you should use
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#wait_while_present&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#wait_until_present&lt;/code&gt;. Right now these methods
+ can be used with non-Element classes, and support for that will soon be removed. It is safe to use
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;wait_while(&amp;amp;:present?)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;wait_until(&amp;amp;:present?)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.12.0 is now available on RubyGems. Three new contributors to Watir and several great new features available.</summary></entry><entry><title type="html">Refreshed Website</title><link href="/refreshed-website" rel="alternate" type="text/html" title="Refreshed Website" /><published>2018-07-23T00:00:00+00:00</published><updated>2018-07-23T00:00:00+00:00</updated><id>/refreshed-website</id><content type="html" xml:base="/refreshed-website">&lt;p&gt;Yes, the website looks a little different! We got some professional help to tidy things up and add a few new features.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -457,49 +616,4 @@ element itself. With the new &lt;code class=&quot;highlighter-rouge&quot;&gt;Inp
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
-for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.8.0 is now available on RubyGems! Several new features including new methods to increase performance.</summary></entry><entry><title type="html">Ruby Open Source Testing Code Hackathon</title><link href="/hackathon" rel="alternate" type="text/html" title="Ruby Open Source Testing Code Hackathon" /><published>2017-08-24T00:00:00+00:00</published><updated>2017-08-24T00:00:00+00:00</updated><id>/hackathon</id><content type="html" xml:base="/hackathon">&lt;p&gt;Join us September 22 &amp;amp; 23 in Toronto and help us shape the future of functional UI testing in Ruby.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.eventbrite.com/e/ruby-open-source-testing-code-hackathon-tickets-36985700225&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;featured-participants&quot;&gt;Featured Participants&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bret Pettichord - Founder of &lt;a href=&quot;http://watir.com&quot;&gt;Watir&lt;/a&gt; and member of original launch team for &lt;a href=&quot;http://seleniumhq.org&quot;&gt;Selenium&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Jeff “Cheezy” Morgan - Author of the &lt;a href=&quot;https://github.com/cheezy/page-object&quot;&gt;Page Object gem&lt;/a&gt; (and a host of other testing gems)&lt;/li&gt;
-  &lt;li&gt;Titus Fortner - Current maintainer of the &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/wiki/Ruby-Bindings&quot;&gt;Ruby Selenium Bindings&lt;/a&gt; 
-and project lead for &lt;a href=&quot;http://watir.com&quot;&gt;Watir&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ruby is an excellent language in which to write automated browser tests. It is easy to read, fun to use, and has dozens of different gems that do all kinds of different things that make it easier to write and maintain test suites at all levels of complexity. We’d like to improve how some of these gems work together and be able to provide a packaged collection of code that makes it easier for people to ramp up their automated test suites from scratch.
-I’ve been calling this idea the “Rails of Automated Testing.” In the same way that Rails made it easy and fun for people without much domain experience to create a web application, there is a more specialized need to provide a solution like this for people tasked with writing automated tests.&lt;/p&gt;
-
-&lt;p&gt;This might not be a typical hackathon, but we will be deciding on objectives and splitting up into groups to dig into code to make it happen. Project owners will be on hand to answer questions or provide deep dives into the code bases. Options for exploration will include things like: test data management, session configuration, mobile APIs, page modeling and project scaffolding.&lt;/p&gt;
-
-&lt;p&gt;Please bring your testing experience and/or your coding skills and join us in Toronto.&lt;/p&gt;
-
-&lt;h3 id=&quot;tentative-schedule&quot;&gt;Tentative Schedule&lt;/h3&gt;
-
-&lt;h4 id=&quot;friday&quot;&gt;Friday&lt;/h4&gt;
-&lt;p&gt;11:30 - Doors open&lt;br /&gt;
-12 - Introductions and Overview&lt;br /&gt;
-1 - Coding!&lt;br /&gt;
-5 - Break for dinner/drinks&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;saturday&quot;&gt;Saturday&lt;/h4&gt;
-&lt;p&gt;9:30 - Doors open (breakfast)&lt;br /&gt;
-10:00 - Recap previous day&lt;br /&gt;
-11 - Coding!&lt;br /&gt;
-1 - Lunch Break&lt;br /&gt;
-2 - Coding!&lt;br /&gt;
-4 - Presentations, What nexts and Departing thoughts&lt;br /&gt;
-5 - Break for dinner/drinks&lt;/p&gt;
-
-&lt;h3 id=&quot;sponsors&quot;&gt;Sponsors&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://loblawdigital.co/&quot;&gt;Loblaw Digital&lt;/a&gt;:
-Loblaw Digital is the team building and operating the digital businesses for Canada’s largest and most successful retailer. We create leading responsive e-commerce experiences, including Loblaws Click &amp;amp; Collect, an innovative online grocery shopping experience. We’ve also built and now operate the award-winning JoeFresh.com, along with the iPad/iPhone app. We are based in downtown Toronto and operate like a startup with the resources of a much larger company. We are an entrepreneurial, fast-paced, collaborative, and fun team working towards transforming the way Canadians shop.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://saucelabs.com&quot;&gt;Sauce Labs&lt;/a&gt;:
-Sauce Labs makes automated testing awesome. Our cloud-based platform helps developers test native &amp;amp; hybrid mobile and web applications across hundreds of browser / OS platforms, including iOS, Android &amp;amp; Mac OS X. Sauce supports Selenium, Appium and popular JavaScript unit testing frameworks, and integrates with all of the top programming languages, test frameworks and CI systems. With built-in video recording and screenshots of every test case, debugging tools, and secure tunneling for local or firewalled testing. Sauce makes running, debugging and scaling test suites quick and easy. To get started for free, visit saucelabs.com.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Blogs" /><summary type="html">Join us September 22 &amp;amp; 23 in Toronto and help us shape the future of functional UI testing in Ruby.</summary></entry></feed>
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.8.0 is now available on RubyGems! Several new features including new methods to increase performance.</summary></entry></feed>
