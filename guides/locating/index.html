@@ -10,73 +10,355 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="One of the biggest features of Watir is all of the ways it allows you to locate elements.
+    <meta name="description" content="One of the most important features of Watir is the many varied ways it allows users to locate elements.
+The Watir location API is designed to be easily read and understood by users (humans).
+Elements are located by creating a Selector Hash, which Watir translates into the potentially
+complicated information the driver needs to know to identify the element.
 
-The Standard Selenium Locators:
-
-  ID
-  Name
-  Link Text
-  Partial Link Text
-  Class Name
-  Tag Name
-  CSS
-  XPath
+The special cases will be highlighted below, but Watir Locators:
 
 
-Additional Watir Locators:
-
-  Text
-  Data attributes
-  Aria attributes
-  Any attribute in HTML5.1 or SVG2 spec valid for the given element
-  Presence/Absence/Multiple Attributes
-  Presence/Absence/Multiple Classes
-  Label
-  Visible
-  Adjacent (parent, child, children, previous sibling, following sibling, siblings)
-  Index
+  Accept String values for exact matching
+  Accept RegExp values for partial matching
+  Can be mixed with any other Watir Locator
+  Can be used to find the first matching element, or all matching elements as part of a collection
 
 
-Everything that can be located by String can use a Regular Expression to
-allow partial matching on any locator.
+Firstly, like Selenium, Watir supports the full power of directly using :css &amp; :xpath selectors. When
+ either of these are used, they must be the only one provided in the Selector Hash. 
+ Watir’s goal, however, is to minimize the need to rely on these powerful locators. 
+ XPath in particular can be difficult to read and can be easy to 
+write in a brittle fashion, so Watir encourages the approach of “No More XPath!”
 
-All of these can be mixed and matched to provide as much specificity as you need to find 
-what you are looking for.
+Additionally, it is worth noting that there are two locators defined in the WebDriver specification
+ that Watir does not directly support because it provides the same functionality by alternate means.
+ These are :link_text and :partial_link_text.
+With Watir you can locate any element by its text, not just links, and Watir already supports
+ partial matches for all of its locators with Regular Expressions.
+
+
+Standard Watir Locators
+
+
+
+ID
+
+browser.div(id: "header")
+browser.div(id: /header/)
+
+
+
+Name
+
+browser.text_field(name: 'new_user_email')
+browser.text_field(name: /new_user_email/)
+
+
+
+Tag Name
+
+# while this works:
+browser.element(tag_name: 'div')
+ 
+# it is highly recommended to leverage this locator by using the element's associated method:
+browser.div
+
+
+
+Class Name
+
+# This is for locating with a single class only
+browser.text_field(class: 'name')
+browser.text_field(class: /name/)
+
+
+
+Text
+
+# evaluates what is in the DOM, not what a user can see on the page
+browser.button(text: "Button 2")
+browser.button(text: /Button/)
+
+
+
+Visible Text
+
+# attempts to evaluate based on what a user can see on the page
+browser.button(visible_text: "Button 2")
+browser.button(visible_text: /Button/)
+
+
+
+Data Attributes
+
+browser.p(data_type: "ruby-library")
+browser.p(data_type: /ruby-library/)
+
+
+
+Aria Attributes
+
+browser.p(aria_label: "ruby-library")
+browser.p(aria_label: /ruby-library/)
+
+
+
+Valid or Custom Attributes
+
+browser.link(href: 'non_control_elements.html')
+browser.link(href: /non_control_elements.html/)
+browser.div(custom_attribute: "foo")
+browser.div(custom_attribute: /foo/)
+
+
+
+Label
+
+# locate based on the value of the associated label element (not attribute)
+browser.text_field(label: 'With text'))
+browser.text_field(label: /With text/))
+
+
+
+Index
+
+  this can not be used to locate an element collection
+  when combined with other locators, index is the last filter to be applied)
+
+
+browser.div(index: 2)
+
+
+
+Presence/Absence/Multiple Classes
+
+  this takes an Array of String or RegExp values
+
+
+browser.text_field(class: ['order', 'should', 'matter', 'not'])
+browser.text_field(class: ['this', '!notthis'])
+
+
+
+Presence/Absence Attributes
+
+  this takes a Boolean value
+
+
+browser.div(data_bar: false)
+browser.div(data_foo: true)        
+
+
+
+Visible
+
+  this takes a Boolean value
+
+
+browser.div(visible: true)
+browser.div(visible: false)
+
+
+
+Adjacent Nodes
+
+  these are not locators in the Selector Hash
+  these are methods that accept a Selector Hash
+
+
+anchor_element.parent(selectors)
+
+anchor_element.previous_sibling(selectors)
+anchor_element.following_sibling(selectors)
+anchor_element.siblings(selectors)
+
+anchor_element.child(selectors)
+anchor_element.children(selectors)
+
+
+
+Implementation Details
+
+Most of the time Watir can translate the Selector Hash into a single XPath expression to quickly identify the element.
+ You can get a sense for what this looks like by checking out our sample app XPathify.
+Instances where this can not be done include when the usage of :visible, :visible_text or :index locators,
+or (sometimes) when there are Regular Expressions in the locator values. In that case Watir locates
+ potentially matching elements and iterates over them to provide the requested result.
 " />
-    <meta property="og:description" content="One of the biggest features of Watir is all of the ways it allows you to locate elements.
+    <meta property="og:description" content="One of the most important features of Watir is the many varied ways it allows users to locate elements.
+The Watir location API is designed to be easily read and understood by users (humans).
+Elements are located by creating a Selector Hash, which Watir translates into the potentially
+complicated information the driver needs to know to identify the element.
 
-The Standard Selenium Locators:
-
-  ID
-  Name
-  Link Text
-  Partial Link Text
-  Class Name
-  Tag Name
-  CSS
-  XPath
+The special cases will be highlighted below, but Watir Locators:
 
 
-Additional Watir Locators:
-
-  Text
-  Data attributes
-  Aria attributes
-  Any attribute in HTML5.1 or SVG2 spec valid for the given element
-  Presence/Absence/Multiple Attributes
-  Presence/Absence/Multiple Classes
-  Label
-  Visible
-  Adjacent (parent, child, children, previous sibling, following sibling, siblings)
-  Index
+  Accept String values for exact matching
+  Accept RegExp values for partial matching
+  Can be mixed with any other Watir Locator
+  Can be used to find the first matching element, or all matching elements as part of a collection
 
 
-Everything that can be located by String can use a Regular Expression to
-allow partial matching on any locator.
+Firstly, like Selenium, Watir supports the full power of directly using :css &amp; :xpath selectors. When
+ either of these are used, they must be the only one provided in the Selector Hash. 
+ Watir’s goal, however, is to minimize the need to rely on these powerful locators. 
+ XPath in particular can be difficult to read and can be easy to 
+write in a brittle fashion, so Watir encourages the approach of “No More XPath!”
 
-All of these can be mixed and matched to provide as much specificity as you need to find 
-what you are looking for.
+Additionally, it is worth noting that there are two locators defined in the WebDriver specification
+ that Watir does not directly support because it provides the same functionality by alternate means.
+ These are :link_text and :partial_link_text.
+With Watir you can locate any element by its text, not just links, and Watir already supports
+ partial matches for all of its locators with Regular Expressions.
+
+
+Standard Watir Locators
+
+
+
+ID
+
+browser.div(id: "header")
+browser.div(id: /header/)
+
+
+
+Name
+
+browser.text_field(name: 'new_user_email')
+browser.text_field(name: /new_user_email/)
+
+
+
+Tag Name
+
+# while this works:
+browser.element(tag_name: 'div')
+ 
+# it is highly recommended to leverage this locator by using the element's associated method:
+browser.div
+
+
+
+Class Name
+
+# This is for locating with a single class only
+browser.text_field(class: 'name')
+browser.text_field(class: /name/)
+
+
+
+Text
+
+# evaluates what is in the DOM, not what a user can see on the page
+browser.button(text: "Button 2")
+browser.button(text: /Button/)
+
+
+
+Visible Text
+
+# attempts to evaluate based on what a user can see on the page
+browser.button(visible_text: "Button 2")
+browser.button(visible_text: /Button/)
+
+
+
+Data Attributes
+
+browser.p(data_type: "ruby-library")
+browser.p(data_type: /ruby-library/)
+
+
+
+Aria Attributes
+
+browser.p(aria_label: "ruby-library")
+browser.p(aria_label: /ruby-library/)
+
+
+
+Valid or Custom Attributes
+
+browser.link(href: 'non_control_elements.html')
+browser.link(href: /non_control_elements.html/)
+browser.div(custom_attribute: "foo")
+browser.div(custom_attribute: /foo/)
+
+
+
+Label
+
+# locate based on the value of the associated label element (not attribute)
+browser.text_field(label: 'With text'))
+browser.text_field(label: /With text/))
+
+
+
+Index
+
+  this can not be used to locate an element collection
+  when combined with other locators, index is the last filter to be applied)
+
+
+browser.div(index: 2)
+
+
+
+Presence/Absence/Multiple Classes
+
+  this takes an Array of String or RegExp values
+
+
+browser.text_field(class: ['order', 'should', 'matter', 'not'])
+browser.text_field(class: ['this', '!notthis'])
+
+
+
+Presence/Absence Attributes
+
+  this takes a Boolean value
+
+
+browser.div(data_bar: false)
+browser.div(data_foo: true)        
+
+
+
+Visible
+
+  this takes a Boolean value
+
+
+browser.div(visible: true)
+browser.div(visible: false)
+
+
+
+Adjacent Nodes
+
+  these are not locators in the Selector Hash
+  these are methods that accept a Selector Hash
+
+
+anchor_element.parent(selectors)
+
+anchor_element.previous_sibling(selectors)
+anchor_element.following_sibling(selectors)
+anchor_element.siblings(selectors)
+
+anchor_element.child(selectors)
+anchor_element.children(selectors)
+
+
+
+Implementation Details
+
+Most of the time Watir can translate the Selector Hash into a single XPath expression to quickly identify the element.
+ You can get a sense for what this looks like by checking out our sample app XPathify.
+Instances where this can not be done include when the usage of :visible, :visible_text or :index locators,
+or (sometimes) when there are Regular Expressions in the locator values. In that case Watir locates
+ potentially matching elements and iterates over them to provide the requested result.
 " />
     
     <meta name="author" content="Watir Project" />
@@ -141,39 +423,180 @@ what you are looking for.
   <article>
     <h2 class = 'flex-out'>Locating Elements
      <a href = 'https://github.com/watir/watir.github.io/edit/source/_guides/locating.md'> <i class ='fas fa-edit' title = 'Edit on GitHub'></i></a></h2>
-    <p>One of the biggest features of Watir is all of the ways it allows you to locate elements.</p>
+    <p>One of the most important features of Watir is the many varied ways it allows users to locate elements.
+The Watir location API is designed to be easily read and understood by users (humans).
+Elements are located by creating a Selector Hash, which Watir translates into the potentially
+complicated information the driver needs to know to identify the element.</p>
 
-<p>The Standard Selenium Locators:</p>
+<p>The special cases will be highlighted below, but Watir Locators:</p>
+
+<ol>
+  <li>Accept <code class="highlighter-rouge">String</code> values for exact matching</li>
+  <li>Accept <code class="highlighter-rouge">RegExp</code> values for partial matching</li>
+  <li>Can be mixed with any other Watir Locator</li>
+  <li>Can be used to find the first matching element, or all matching elements as part of a collection</li>
+</ol>
+
+<p>Firstly, like Selenium, Watir supports the full power of directly using <code class="highlighter-rouge">:css</code> &amp; <code class="highlighter-rouge">:xpath</code> selectors. When
+ either of these are used, they must be the only one provided in the Selector Hash. 
+ Watir’s goal, however, is to minimize the need to rely on these powerful locators. 
+ XPath in particular can be difficult to read and can be easy to 
+write in a brittle fashion, so Watir encourages the approach of “No More XPath!”</p>
+
+<p>Additionally, it is worth noting that there are two locators defined in the WebDriver specification
+ that Watir does not directly support because it provides the same functionality by alternate means.<br />
+ These are <code class="highlighter-rouge">:link_text</code> and <code class="highlighter-rouge">:partial_link_text</code>.
+With Watir you can locate any element by its text, not just links, and Watir already supports
+ partial matches for all of its locators with Regular Expressions.</p>
+<p />
+
+<h3 id="standard-watir-locators">Standard Watir Locators</h3>
+
+<p />
+
+<h4 id="id">ID</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s2">"header"</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="sr">/header/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="name">Name</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'new_user_email'</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">name: </span><span class="sr">/new_user_email/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="tag-name">Tag Name</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># while this works:</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">element</span><span class="p">(</span><span class="ss">tag_name: </span><span class="s1">'div'</span><span class="p">)</span>
+ 
+<span class="c1"># it is highly recommended to leverage this locator by using the element's associated method:</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">div</span></code></pre></figure>
+
+<p />
+
+<h4 id="class-name">Class Name</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># This is for locating with a single class only</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="s1">'name'</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="sr">/name/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="text">Text</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># evaluates what is in the DOM, not what a user can see on the page</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">text: </span><span class="s2">"Button 2"</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">text: </span><span class="sr">/Button/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="visible-text">Visible Text</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># attempts to evaluate based on what a user can see on the page</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">visible_text: </span><span class="s2">"Button 2"</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">visible_text: </span><span class="sr">/Button/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="data-attributes">Data Attributes</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">data_type: </span><span class="s2">"ruby-library"</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">data_type: </span><span class="sr">/ruby-library/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="aria-attributes">Aria Attributes</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">aria_label: </span><span class="s2">"ruby-library"</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">aria_label: </span><span class="sr">/ruby-library/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="valid-or-custom-attributes">Valid or Custom Attributes</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">link</span><span class="p">(</span><span class="ss">href: </span><span class="s1">'non_control_elements.html'</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">link</span><span class="p">(</span><span class="ss">href: </span><span class="sr">/non_control_elements.html/</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">custom_attribute: </span><span class="s2">"foo"</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">custom_attribute: </span><span class="sr">/foo/</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="label">Label</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># locate based on the value of the associated label element (not attribute)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">label: </span><span class="s1">'With text'</span><span class="p">))</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">label: </span><span class="sr">/With text/</span><span class="p">))</span></code></pre></figure>
+
+<p />
+
+<h4 id="index">Index</h4>
 <ul>
-  <li>ID</li>
-  <li>Name</li>
-  <li>Link Text</li>
-  <li>Partial Link Text</li>
-  <li>Class Name</li>
-  <li>Tag Name</li>
-  <li>CSS</li>
-  <li>XPath</li>
+  <li>this can not be used to locate an element collection</li>
+  <li>when combined with other locators, index is the last filter to be applied)</li>
 </ul>
 
-<p>Additional Watir Locators:</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">index: </span><span class="mi">2</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="presenceabsencemultiple-classes">Presence/Absence/Multiple Classes</h4>
 <ul>
-  <li>Text</li>
-  <li>Data attributes</li>
-  <li>Aria attributes</li>
-  <li>Any attribute in HTML5.1 or SVG2 spec valid for the given element</li>
-  <li>Presence/Absence/Multiple Attributes</li>
-  <li>Presence/Absence/Multiple Classes</li>
-  <li>Label</li>
-  <li>Visible</li>
-  <li>Adjacent (parent, child, children, previous sibling, following sibling, siblings)</li>
-  <li>Index</li>
+  <li>this takes an Array of String or RegExp values</li>
 </ul>
 
-<p>Everything that can be located by String can use a Regular Expression to
-allow partial matching on any locator.</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="p">[</span><span class="s1">'order'</span><span class="p">,</span> <span class="s1">'should'</span><span class="p">,</span> <span class="s1">'matter'</span><span class="p">,</span> <span class="s1">'not'</span><span class="p">])</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="p">[</span><span class="s1">'this'</span><span class="p">,</span> <span class="s1">'!notthis'</span><span class="p">])</span></code></pre></figure>
 
-<p>All of these can be mixed and matched to provide as much specificity as you need to find 
-what you are looking for.</p>
+<p />
+
+<h4 id="presenceabsence-attributes">Presence/Absence Attributes</h4>
+<ul>
+  <li>this takes a Boolean value</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">data_bar: </span><span class="kp">false</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">data_foo: </span><span class="kp">true</span><span class="p">)</span>        </code></pre></figure>
+
+<p />
+
+<h4 id="visible">Visible</h4>
+<ul>
+  <li>this takes a Boolean value</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">visible: </span><span class="kp">true</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">visible: </span><span class="kp">false</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h4 id="adjacent-nodes">Adjacent Nodes</h4>
+<ul>
+  <li>these are not locators in the Selector Hash</li>
+  <li>these are methods that accept a Selector Hash</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">anchor_element</span><span class="p">.</span><span class="nf">parent</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+
+<span class="n">anchor_element</span><span class="p">.</span><span class="nf">previous_sibling</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+<span class="n">anchor_element</span><span class="p">.</span><span class="nf">following_sibling</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+<span class="n">anchor_element</span><span class="p">.</span><span class="nf">siblings</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+
+<span class="n">anchor_element</span><span class="p">.</span><span class="nf">child</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+<span class="n">anchor_element</span><span class="p">.</span><span class="nf">children</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span></code></pre></figure>
+
+<p />
+
+<h3 id="implementation-details">Implementation Details</h3>
+
+<p>Most of the time Watir can translate the Selector Hash into a single XPath expression to quickly identify the element.
+ You can get a sense for what this looks like by checking out our sample app <a href="http://xpathify.herokuapp.com/">XPathify</a>.
+Instances where this can not be done include when the usage of <code class="highlighter-rouge">:visible</code>, <code class="highlighter-rouge">:visible_text</code> or <code class="highlighter-rouge">:index</code> locators,
+or (sometimes) when there are Regular Expressions in the locator values. In that case Watir locates
+ potentially matching elements and iterates over them to provide the requested result.</p>
 
   </article>
   <aside>
