@@ -15,11 +15,12 @@ their associated attributes. These classes are encapsulated to give easier acces
 specific attributes, making it easier to locate them, and providing custom features
 unique to them.
 
+
+
 Here are some basic examples for interacting with elements:
 
 Text Fields
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 t = b.text_field id: 'entry_1000000'
 t.exists?
@@ -28,7 +29,6 @@ t.value
 
 Select Lists – Combos
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 s = b.select_list id: 'entry_1000001'
 s.select 'Ruby'
@@ -36,7 +36,6 @@ s.selected_options
 
 Radios
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 r = b.radio value: 'A gem'
 r.exists?
@@ -45,7 +44,6 @@ r.set?
 
 Checkboxes
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 c = b.checkbox value: '1.9.2'
 c.exists?
@@ -54,7 +52,6 @@ c.set?
 
 Buttons
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 btn = b.button value: 'Submit'
 btn.exists?
@@ -62,7 +59,6 @@ btn.click
 
 Links
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 l = b.link text: 'Google Forms'
 l.exists?
@@ -70,7 +66,6 @@ l.click
 
 Divs &amp; Spans
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 d = b.div class: 'ss-form-desc ss-no-ignore-whitespace'
 d.exists?
@@ -88,11 +83,12 @@ their associated attributes. These classes are encapsulated to give easier acces
 specific attributes, making it easier to locate them, and providing custom features
 unique to them.
 
+
+
 Here are some basic examples for interacting with elements:
 
 Text Fields
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 t = b.text_field id: 'entry_1000000'
 t.exists?
@@ -101,7 +97,6 @@ t.value
 
 Select Lists – Combos
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 s = b.select_list id: 'entry_1000001'
 s.select 'Ruby'
@@ -109,7 +104,6 @@ s.selected_options
 
 Radios
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 r = b.radio value: 'A gem'
 r.exists?
@@ -118,7 +112,6 @@ r.set?
 
 Checkboxes
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 c = b.checkbox value: '1.9.2'
 c.exists?
@@ -127,7 +120,6 @@ c.set?
 
 Buttons
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 btn = b.button value: 'Submit'
 btn.exists?
@@ -135,7 +127,6 @@ btn.click
 
 Links
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 l = b.link text: 'Google Forms'
 l.exists?
@@ -143,7 +134,6 @@ l.click
 
 Divs &amp; Spans
 
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 d = b.div class: 'ss-form-desc ss-no-ignore-whitespace'
 d.exists?
@@ -229,12 +219,13 @@ their associated attributes. These classes are encapsulated to give easier acces
 specific attributes, making it easier to locate them, and providing custom features
 unique to them.</p>
 
+<!--- TODO: There are more elements with special behaviors here; likely need separate pages for some --->
+
 <p>Here are some basic examples for interacting with elements:</p>
 
 <h3 id="text-fields">Text Fields</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">id: </span><span class="s1">'entry_1000000'</span>
 <span class="n">t</span><span class="p">.</span><span class="nf">exists?</span>
 <span class="n">t</span><span class="p">.</span><span class="nf">set</span> <span class="s1">'your name'</span>
@@ -242,16 +233,14 @@ unique to them.</p>
 
 <h3 id="select-lists--combos">Select Lists – Combos</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">select_list</span> <span class="ss">id: </span><span class="s1">'entry_1000001'</span>
 <span class="n">s</span><span class="p">.</span><span class="nf">select</span> <span class="s1">'Ruby'</span>
 <span class="n">s</span><span class="p">.</span><span class="nf">selected_options</span></code></pre></figure>
 
 <h3 id="radios">Radios</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">radio</span> <span class="ss">value: </span><span class="s1">'A gem'</span>
 <span class="n">r</span><span class="p">.</span><span class="nf">exists?</span>
 <span class="n">r</span><span class="p">.</span><span class="nf">set</span>
@@ -259,8 +248,7 @@ unique to them.</p>
 
 <h3 id="checkboxes">Checkboxes</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">checkbox</span> <span class="ss">value: </span><span class="s1">'1.9.2'</span>
 <span class="n">c</span><span class="p">.</span><span class="nf">exists?</span>
 <span class="n">c</span><span class="p">.</span><span class="nf">set</span>
@@ -268,24 +256,21 @@ unique to them.</p>
 
 <h3 id="buttons">Buttons</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">btn</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">button</span> <span class="ss">value: </span><span class="s1">'Submit'</span>
 <span class="n">btn</span><span class="p">.</span><span class="nf">exists?</span>
 <span class="n">btn</span><span class="p">.</span><span class="nf">click</span></code></pre></figure>
 
 <h3 id="links">Links</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">link</span> <span class="ss">text: </span><span class="s1">'Google Forms'</span>
 <span class="n">l</span><span class="p">.</span><span class="nf">exists?</span>
 <span class="n">l</span><span class="p">.</span><span class="nf">click</span></code></pre></figure>
 
 <h3 id="divs--spans">Divs &amp; Spans</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">div</span> <span class="ss">class: </span><span class="s1">'ss-form-desc ss-no-ignore-whitespace'</span>
 <span class="n">d</span><span class="p">.</span><span class="nf">exists?</span>
 <span class="n">d</span><span class="p">.</span><span class="nf">text</span>
@@ -298,7 +283,7 @@ unique to them.</p>
 <p>See: <a href="../wysiwyg">WYSIWYG Editors</a> page</p>
 
 <p></p>
-<h5>Last Updated: July 19, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

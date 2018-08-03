@@ -36,24 +36,17 @@ Additionally, it is worth noting that there are two locators defined in the WebD
 With Watir you can locate any element by its text, not just links, and Watir already supports
  partial matches for all of its locators with Regular Expressions.
 
-
 Standard Watir Locators
-
-
 
 ID
 
 browser.div(id: "header")
 browser.div(id: /header/)
 
-
-
 Name
 
 browser.text_field(name: 'new_user_email')
 browser.text_field(name: /new_user_email/)
-
-
 
 Tag Name
 
@@ -63,15 +56,11 @@ browser.element(tag_name: 'div')
 # it is highly recommended to leverage this locator by using the element's associated method:
 browser.div
 
-
-
 Class Name
 
 # This is for locating with a single class only
 browser.text_field(class: 'name')
 browser.text_field(class: /name/)
-
-
 
 Text
 
@@ -79,29 +68,21 @@ Text
 browser.button(text: "Button 2")
 browser.button(text: /Button/)
 
-
-
 Visible Text
 
 # attempts to evaluate based on what a user can see on the page
 browser.button(visible_text: "Button 2")
 browser.button(visible_text: /Button/)
 
-
-
 Data Attributes
 
 browser.p(data_type: "ruby-library")
 browser.p(data_type: /ruby-library/)
 
-
-
 Aria Attributes
 
 browser.p(aria_label: "ruby-library")
 browser.p(aria_label: /ruby-library/)
-
-
 
 Valid or Custom Attributes
 
@@ -110,15 +91,11 @@ browser.link(href: /non_control_elements.html/)
 browser.div(custom_attribute: "foo")
 browser.div(custom_attribute: /foo/)
 
-
-
 Label
 
 # locate based on the value of the associated label element (not attribute)
 browser.text_field(label: 'With text'))
 browser.text_field(label: /With text/))
-
-
 
 Index
 
@@ -128,8 +105,6 @@ Index
 
 browser.div(index: 2)
 
-
-
 Presence/Absence/Multiple Classes
 
   this takes an Array of String or RegExp values
@@ -137,8 +112,6 @@ Presence/Absence/Multiple Classes
 
 browser.text_field(class: ['order', 'should', 'matter', 'not'])
 browser.text_field(class: ['this', '!notthis'])
-
-
 
 Presence/Absence Attributes
 
@@ -148,8 +121,6 @@ Presence/Absence Attributes
 browser.div(data_bar: false)
 browser.div(data_foo: true)        
 
-
-
 Visible
 
   this takes a Boolean value
@@ -157,8 +128,6 @@ Visible
 
 browser.div(visible: true)
 browser.div(visible: false)
-
-
 
 Adjacent Nodes
 
@@ -174,8 +143,6 @@ anchor_element.siblings(selectors)
 
 anchor_element.child(selectors)
 anchor_element.children(selectors)
-
-
 
 Implementation Details
 
@@ -211,24 +178,17 @@ Additionally, it is worth noting that there are two locators defined in the WebD
 With Watir you can locate any element by its text, not just links, and Watir already supports
  partial matches for all of its locators with Regular Expressions.
 
-
 Standard Watir Locators
-
-
 
 ID
 
 browser.div(id: "header")
 browser.div(id: /header/)
 
-
-
 Name
 
 browser.text_field(name: 'new_user_email')
 browser.text_field(name: /new_user_email/)
-
-
 
 Tag Name
 
@@ -238,15 +198,11 @@ browser.element(tag_name: 'div')
 # it is highly recommended to leverage this locator by using the element's associated method:
 browser.div
 
-
-
 Class Name
 
 # This is for locating with a single class only
 browser.text_field(class: 'name')
 browser.text_field(class: /name/)
-
-
 
 Text
 
@@ -254,29 +210,21 @@ Text
 browser.button(text: "Button 2")
 browser.button(text: /Button/)
 
-
-
 Visible Text
 
 # attempts to evaluate based on what a user can see on the page
 browser.button(visible_text: "Button 2")
 browser.button(visible_text: /Button/)
 
-
-
 Data Attributes
 
 browser.p(data_type: "ruby-library")
 browser.p(data_type: /ruby-library/)
 
-
-
 Aria Attributes
 
 browser.p(aria_label: "ruby-library")
 browser.p(aria_label: /ruby-library/)
-
-
 
 Valid or Custom Attributes
 
@@ -285,15 +233,11 @@ browser.link(href: /non_control_elements.html/)
 browser.div(custom_attribute: "foo")
 browser.div(custom_attribute: /foo/)
 
-
-
 Label
 
 # locate based on the value of the associated label element (not attribute)
 browser.text_field(label: 'With text'))
 browser.text_field(label: /With text/))
-
-
 
 Index
 
@@ -303,8 +247,6 @@ Index
 
 browser.div(index: 2)
 
-
-
 Presence/Absence/Multiple Classes
 
   this takes an Array of String or RegExp values
@@ -312,8 +254,6 @@ Presence/Absence/Multiple Classes
 
 browser.text_field(class: ['order', 'should', 'matter', 'not'])
 browser.text_field(class: ['this', '!notthis'])
-
-
 
 Presence/Absence Attributes
 
@@ -323,8 +263,6 @@ Presence/Absence Attributes
 browser.div(data_bar: false)
 browser.div(data_foo: true)        
 
-
-
 Visible
 
   this takes a Boolean value
@@ -332,8 +270,6 @@ Visible
 
 browser.div(visible: true)
 browser.div(visible: false)
-
-
 
 Adjacent Nodes
 
@@ -349,8 +285,6 @@ anchor_element.siblings(selectors)
 
 anchor_element.child(selectors)
 anchor_element.children(selectors)
-
-
 
 Implementation Details
 
@@ -453,25 +387,18 @@ write in a brittle fashion, so Watir encourages the approach of “No More XPath
  These are <code class="highlighter-rouge">:link_text</code> and <code class="highlighter-rouge">:partial_link_text</code>.
 With Watir you can locate any element by its text, not just links, and Watir already supports
  partial matches for all of its locators with Regular Expressions.</p>
-<p />
 
 <h3 id="standard-watir-locators">Standard Watir Locators</h3>
-
-<p />
 
 <h4 id="id">ID</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s2">"header"</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="sr">/header/</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h4 id="name">Name</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'new_user_email'</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">name: </span><span class="sr">/new_user_email/</span><span class="p">)</span></code></pre></figure>
-
-<p />
 
 <h4 id="tag-name">Tag Name</h4>
 
@@ -481,15 +408,11 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 <span class="c1"># it is highly recommended to leverage this locator by using the element's associated method:</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">div</span></code></pre></figure>
 
-<p />
-
 <h4 id="class-name">Class Name</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># This is for locating with a single class only</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="s1">'name'</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="sr">/name/</span><span class="p">)</span></code></pre></figure>
-
-<p />
 
 <h4 id="text">Text</h4>
 
@@ -497,29 +420,21 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 <span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">text: </span><span class="s2">"Button 2"</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">text: </span><span class="sr">/Button/</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h4 id="visible-text">Visible Text</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># attempts to evaluate based on what a user can see on the page</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">visible_text: </span><span class="s2">"Button 2"</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">visible_text: </span><span class="sr">/Button/</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h4 id="data-attributes">Data Attributes</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">data_type: </span><span class="s2">"ruby-library"</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">data_type: </span><span class="sr">/ruby-library/</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h4 id="aria-attributes">Aria Attributes</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">aria_label: </span><span class="s2">"ruby-library"</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="ss">aria_label: </span><span class="sr">/ruby-library/</span><span class="p">)</span></code></pre></figure>
-
-<p />
 
 <h4 id="valid-or-custom-attributes">Valid or Custom Attributes</h4>
 
@@ -528,15 +443,11 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">custom_attribute: </span><span class="s2">"foo"</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">custom_attribute: </span><span class="sr">/foo/</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h4 id="label">Label</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># locate based on the value of the associated label element (not attribute)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">label: </span><span class="s1">'With text'</span><span class="p">))</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">label: </span><span class="sr">/With text/</span><span class="p">))</span></code></pre></figure>
-
-<p />
 
 <h4 id="index">Index</h4>
 <ul>
@@ -546,8 +457,6 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">index: </span><span class="mi">2</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h4 id="presenceabsencemultiple-classes">Presence/Absence/Multiple Classes</h4>
 <ul>
   <li>this takes an Array of String or RegExp values</li>
@@ -555,8 +464,6 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="p">[</span><span class="s1">'order'</span><span class="p">,</span> <span class="s1">'should'</span><span class="p">,</span> <span class="s1">'matter'</span><span class="p">,</span> <span class="s1">'not'</span><span class="p">])</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">class: </span><span class="p">[</span><span class="s1">'this'</span><span class="p">,</span> <span class="s1">'!notthis'</span><span class="p">])</span></code></pre></figure>
-
-<p />
 
 <h4 id="presenceabsence-attributes">Presence/Absence Attributes</h4>
 <ul>
@@ -566,8 +473,6 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">data_bar: </span><span class="kp">false</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">data_foo: </span><span class="kp">true</span><span class="p">)</span>        </code></pre></figure>
 
-<p />
-
 <h4 id="visible">Visible</h4>
 <ul>
   <li>this takes a Boolean value</li>
@@ -575,8 +480,6 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">visible: </span><span class="kp">true</span><span class="p">)</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">visible: </span><span class="kp">false</span><span class="p">)</span></code></pre></figure>
-
-<p />
 
 <h4 id="adjacent-nodes">Adjacent Nodes</h4>
 <ul>
@@ -593,8 +496,6 @@ With Watir you can locate any element by its text, not just links, and Watir alr
 <span class="n">anchor_element</span><span class="p">.</span><span class="nf">child</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
 <span class="n">anchor_element</span><span class="p">.</span><span class="nf">children</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span></code></pre></figure>
 
-<p />
-
 <h3 id="implementation-details">Implementation Details</h3>
 
 <p>Most of the time Watir can translate the Selector Hash into a single XPath expression to quickly identify the element.
@@ -604,7 +505,7 @@ or (sometimes) when there are Regular Expressions in the locator values. In that
  potentially matching elements and iterates over them to provide the requested result.</p>
 
 <p></p>
-<h5>Last Updated: August 01, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

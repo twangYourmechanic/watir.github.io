@@ -10,11 +10,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="In many cases, you can specify a proxy to use with the proxy: {} option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
+    <meta name="description" content="
+
+
+In many cases, you can specify a proxy to use with the proxy: {} option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
 
 Example: using a proxy in Chrome or Firefox
-
-require 'watir'
 
 proxy = {
   http: 'my.proxy.com:8080',
@@ -39,11 +40,12 @@ proxy = 'my.proxy.com:8080'
 browser = Watir::Browser.new :chrome, url: REMOTE_URL, proxy: {http: proxy, ssl: proxy}
 
 " />
-    <meta property="og:description" content="In many cases, you can specify a proxy to use with the proxy: {} option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
+    <meta property="og:description" content="
+
+
+In many cases, you can specify a proxy to use with the proxy: {} option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
 
 Example: using a proxy in Chrome or Firefox
-
-require 'watir'
 
 proxy = {
   http: 'my.proxy.com:8080',
@@ -136,13 +138,14 @@ browser = Watir::Browser.new :chrome, url: REMOTE_URL, proxy: {http: proxy, ssl:
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Browser Proxies'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <p>In many cases, you can specify a proxy to use with the <code class="highlighter-rouge">proxy: {}</code> option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.</p>
+    <!--- TODO: Need to test all the things with proxies --->
+<!--- TODO: Examples for all browsers --->
+
+<p>In many cases, you can specify a proxy to use with the <code class="highlighter-rouge">proxy: {}</code> option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.</p>
 
 <h3 id="example-using-a-proxy-in-chrome-or-firefox">Example: using a proxy in Chrome or Firefox</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-
-<span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">http: </span><span class="s1">'my.proxy.com:8080'</span><span class="p">,</span>
   <span class="ss">ssl:  </span><span class="s1">'my.proxy.com:8080'</span>
 <span class="p">}</span>
@@ -166,7 +169,7 @@ browser = Watir::Browser.new :chrome, url: REMOTE_URL, proxy: {http: proxy, ssl:
 
 
 <p></p>
-<h5>Last Updated: July 23, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

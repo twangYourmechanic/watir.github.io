@@ -15,13 +15,16 @@
 To use Chrome, ensure you’re using the appropriate driver
 
 Starting Chrome
+Chrome is the default, so you don’t even have to specify it unless you need to add capabilities.
 
 b = Watir::Browser.new
+
+b = Watir::Browser.new :chrome, opts
 
 Headless
 Chrome has a new headless feature that can be accessed directly with:
 
-Watir::Browser.new :chrome, headless: true
+b = Watir::Browser.new :chrome, headless: true
 
 It is still under active development so not all features work yet (alerts, window
 switching, etc)
@@ -71,19 +74,26 @@ https://github.com/jormon/minimal-chrome-on-heroku-xvfb
 
 You can also run using a headless chrome on the heroku-16 stack.  Here’s an example of that working: 
 https://github.com/jormon/minimal-chrome-on-heroku
+
+
+
+
 " />
     <meta property="og:description" content="ChromeDriver
 
 To use Chrome, ensure you’re using the appropriate driver
 
 Starting Chrome
+Chrome is the default, so you don’t even have to specify it unless you need to add capabilities.
 
 b = Watir::Browser.new
+
+b = Watir::Browser.new :chrome, opts
 
 Headless
 Chrome has a new headless feature that can be accessed directly with:
 
-Watir::Browser.new :chrome, headless: true
+b = Watir::Browser.new :chrome, headless: true
 
 It is still under active development so not all features work yet (alerts, window
 switching, etc)
@@ -133,6 +143,10 @@ https://github.com/jormon/minimal-chrome-on-heroku-xvfb
 
 You can also run using a headless chrome on the heroku-16 stack.  Here’s an example of that working: 
 https://github.com/jormon/minimal-chrome-on-heroku
+
+
+
+
 " />
     
     <meta name="author" content="Watir Project" />
@@ -207,13 +221,16 @@ https://github.com/jormon/minimal-chrome-on-heroku
 <p>To use Chrome, ensure you’re <a href="../drivers">using the appropriate driver</a></p>
 
 <h3 id="starting-chrome">Starting Chrome</h3>
+<p>Chrome is the default, so you don’t even have to specify it unless you need to add capabilities.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="n">opts</span></code></pre></figure>
 
 <h3 id="headless">Headless</h3>
 <p>Chrome has a new headless feature that can be accessed directly with:</p>
 
-<p><code class="highlighter-rouge">Watir::Browser.new :chrome, headless: true</code></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">headless: </span><span class="kp">true</span></code></pre></figure>
 
 <p>It is still under active development so not all features work yet (alerts, window
 switching, etc)</p>
@@ -264,8 +281,18 @@ https://github.com/jormon/minimal-chrome-on-heroku-xvfb</p>
 <p>You can also run using a headless chrome on the heroku-16 stack.  Here’s an example of that working: 
 https://github.com/jormon/minimal-chrome-on-heroku</p>
 
+<!--- TODO: Link to other guides with browser specific info --->
+
+<!--- 
+* Certificates
+* Downloads
+* Headless
+* Mobile Emulation?
+* Proxies
+-->
+
 <p></p>
-<h5>Last Updated: July 22, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

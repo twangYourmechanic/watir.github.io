@@ -10,8 +10,30 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="The easiest and best way of dealing with file downloads is to avoid the pesky file download dialogs altogether.
-This is done by programatically telling the browser to automatically save files to a certain directory, that your test can access.
+    <meta name="description" content="Downloads are problematic in Watir because they require interacting with the Operating System,
+and Watir automates a Browser, not an OS. As such if any file dialog boxes are displayed,
+Watir will be unable to handle them. Especially if you are executing your tests on a remote 
+machine, realize that downloads will be sent to that machine, not the machine executing
+your Ruby code, which makes retrieving the file effectively impossible.
+Additionally, actually validating the content of a file is not trivial, 
+especially for something like a PDF.
+
+So, before we get into strategies for dealing with downloads, consider carefully whether you need to 
+actually download files in the first place.
+
+
+  Is it sufficient to validate that the link is present?
+  Can you download the file with a an HTTP Library instead of going through the browser?
+  Can you test what you need to in a lower level unit or integration test rather than in the browser?
+
+
+For more thoughts on this, read 
+this article.
+It is older and focused on Selenium, but the points are still relevant.
+
+If your manager insists you absolutely must test the download via the browser, you can initialize
+the Browser object with parameters telling the browser to automatically download files to a 
+particular directory rather than prompting the Operating System.
 
 Firefox
 
@@ -40,10 +62,32 @@ prefs = {
 
 b = Watir::Browser.new :chrome, options: {prefs: prefs}
 
-See a full list of Chrome preferences
+
 " />
-    <meta property="og:description" content="The easiest and best way of dealing with file downloads is to avoid the pesky file download dialogs altogether.
-This is done by programatically telling the browser to automatically save files to a certain directory, that your test can access.
+    <meta property="og:description" content="Downloads are problematic in Watir because they require interacting with the Operating System,
+and Watir automates a Browser, not an OS. As such if any file dialog boxes are displayed,
+Watir will be unable to handle them. Especially if you are executing your tests on a remote 
+machine, realize that downloads will be sent to that machine, not the machine executing
+your Ruby code, which makes retrieving the file effectively impossible.
+Additionally, actually validating the content of a file is not trivial, 
+especially for something like a PDF.
+
+So, before we get into strategies for dealing with downloads, consider carefully whether you need to 
+actually download files in the first place.
+
+
+  Is it sufficient to validate that the link is present?
+  Can you download the file with a an HTTP Library instead of going through the browser?
+  Can you test what you need to in a lower level unit or integration test rather than in the browser?
+
+
+For more thoughts on this, read 
+this article.
+It is older and focused on Selenium, but the points are still relevant.
+
+If your manager insists you absolutely must test the download via the browser, you can initialize
+the Browser object with parameters telling the browser to automatically download files to a 
+particular directory rather than prompting the Operating System.
 
 Firefox
 
@@ -72,7 +116,7 @@ prefs = {
 
 b = Watir::Browser.new :chrome, options: {prefs: prefs}
 
-See a full list of Chrome preferences
+
 " />
     
     <meta name="author" content="Watir Project" />
@@ -142,8 +186,30 @@ See a full list of Chrome preferences
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Browser Downloads'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <p>The easiest and best way of dealing with file downloads is to avoid the pesky file download dialogs altogether.
-This is done by programatically telling the browser to automatically save files to a certain directory, that your test can access.</p>
+    <p>Downloads are problematic in Watir because they require interacting with the Operating System,
+and Watir automates a Browser, not an OS. As such if any file dialog boxes are displayed,
+Watir will be unable to handle them. Especially if you are executing your tests on a remote 
+machine, realize that downloads will be sent to that machine, not the machine executing
+your Ruby code, which makes retrieving the file effectively impossible.
+Additionally, actually validating the content of a file is not trivial, 
+especially for something like a PDF.</p>
+
+<p>So, before we get into strategies for dealing with downloads, consider carefully whether you need to 
+actually download files in the first place.</p>
+
+<ul>
+  <li>Is it sufficient to validate that the link is present?</li>
+  <li>Can you download the file with a an HTTP Library instead of going through the browser?</li>
+  <li>Can you test what you need to in a lower level unit or integration test rather than in the browser?</li>
+</ul>
+
+<p>For more thoughts on this, read 
+<a href="http://ardesco.lazerycode.com/testing/webdriver/2012/07/25/how-to-download-files-with-selenium-and-why-you-shouldnt.html">this article</a>.
+It is older and focused on Selenium, but the points are still relevant.</p>
+
+<p>If your manager insists you absolutely must test the download via the browser, you can initialize
+the Browser object with parameters telling the browser to automatically download files to a 
+particular directory rather than prompting the Operating System.</p>
 
 <h3 id="firefox">Firefox</h3>
 
@@ -172,10 +238,10 @@ This is done by programatically telling the browser to automatically save files 
 
 <span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="p">{</span><span class="ss">prefs: </span><span class="n">prefs</span><span class="p">}</span></code></pre></figure>
 
-<p>See a full list of Chrome <a href="http://codesearch.google.com/codesearch#OAMlx_jo-ck/src/chrome/common/pref_names.cc&amp;exact_package=chromium">preferences</a></p>
+<!--- TODO: Add code examples for other browsers --->
 
 <p></p>
-<h5>Last Updated: July 19, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

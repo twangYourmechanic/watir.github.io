@@ -30,9 +30,8 @@ but if you choose to use rbenv or chruby, be sure to uninstall RVM completely.
 
 Windows
 
+
   Download and install the latest version from rubyinstaller
-
-
 
 
 Mac
@@ -46,47 +45,46 @@ Copy and paste this into the terminal and hit enter:
 
 xcode-select --install
 
-
 Install HomeBrew
 
 Copy and paste this into the terminal and hit enter:
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Install rbenv
 
 Copy and paste this into the terminal:
+
 brew install rbenv
 rbenv init
 touch ~/.bash_profile
 echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bash_profile
 source ~/.bash_profile
 
-
 Copy and paste this into the terminal:
-rbenv install 2.4.1
-rbenv local 2.4.1
 
-
+rbenv install 2.5.1
+rbenv local 2.5.1
 
 Linux
 
 Install git
 Copy and paste this into the terminal:
-sudo apt-get install git
 
+sudo apt-get install git
 
 Install ruby-install
 Copy and paste this into the terminal:
+
 wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
 tar -xzvf ruby-install-0.6.0.tar.gz
 cd ruby-install-0.6.0/
 sudo make install
-ruby-install ruby 2.4.1
-
+ruby-install ruby 2.5.1
 
 Install chruby
 Copy and paste this into the terminal:
+
 cd ../
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
 tar -xzvf chruby-0.3.9.tar.gz
@@ -95,16 +93,17 @@ sudo make install
 sudo ./scripts/setup.sh
 xed ~/.bash_profile
 
-
 Copy and paste this into the bash_profile file that opened in TextEdit:
+
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
 Save file and Close TextEdit
 
 Copy and paste this into the terminal and hit enter:
+
 source ~/.bash_profile
-chruby 2.4.1
+chruby 2.5.1
 
 " />
     <meta property="og:description" content="Introduction
@@ -127,9 +126,8 @@ but if you choose to use rbenv or chruby, be sure to uninstall RVM completely.
 
 Windows
 
+
   Download and install the latest version from rubyinstaller
-
-
 
 
 Mac
@@ -143,47 +141,46 @@ Copy and paste this into the terminal and hit enter:
 
 xcode-select --install
 
-
 Install HomeBrew
 
 Copy and paste this into the terminal and hit enter:
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Install rbenv
 
 Copy and paste this into the terminal:
+
 brew install rbenv
 rbenv init
 touch ~/.bash_profile
 echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bash_profile
 source ~/.bash_profile
 
-
 Copy and paste this into the terminal:
-rbenv install 2.4.1
-rbenv local 2.4.1
 
-
+rbenv install 2.5.1
+rbenv local 2.5.1
 
 Linux
 
 Install git
 Copy and paste this into the terminal:
-sudo apt-get install git
 
+sudo apt-get install git
 
 Install ruby-install
 Copy and paste this into the terminal:
+
 wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
 tar -xzvf ruby-install-0.6.0.tar.gz
 cd ruby-install-0.6.0/
 sudo make install
-ruby-install ruby 2.4.1
-
+ruby-install ruby 2.5.1
 
 Install chruby
 Copy and paste this into the terminal:
+
 cd ../
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
 tar -xzvf chruby-0.3.9.tar.gz
@@ -192,16 +189,17 @@ sudo make install
 sudo ./scripts/setup.sh
 xed ~/.bash_profile
 
-
 Copy and paste this into the bash_profile file that opened in TextEdit:
+
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
 Save file and Close TextEdit
 
 Copy and paste this into the terminal and hit enter:
+
 source ~/.bash_profile
-chruby 2.4.1
+chruby 2.5.1
 
 " />
     
@@ -291,10 +289,9 @@ maintain a Ruby interpreter if you prefer to use it,
 but if you choose to use rbenv or chruby, be sure to uninstall RVM completely.</p>
 
 <h3 id="windows">Windows</h3>
+
 <ul>
-  <li>Download and install the latest version from <a href="https://rubyinstaller.org/downloads/">rubyinstaller</a>
-<br />
-<br /></li>
+  <li>Download and install the latest version from <a href="https://rubyinstaller.org/downloads/">rubyinstaller</a></li>
 </ul>
 
 <h3 id="mac">Mac</h3>
@@ -306,71 +303,71 @@ Type Terminal and hit enter</p>
 
 <p>Copy and paste this into the terminal and hit enter:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select --install
-</code></pre></div></div>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">xcode-select <span class="nt">--install</span></code></pre></figure>
 
 <p><strong>Install <a href="http://brew.sh">HomeBrew</a></strong></p>
 
 <p>Copy and paste this into the terminal and hit enter:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">/usr/bin/ruby <span class="nt">-e</span> <span class="s2">"</span><span class="k">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span></code></pre></figure>
 
 <p><strong>Install <a href="https://github.com/rbenv/rbenv#readme">rbenv</a></strong></p>
 
 <p>Copy and paste this into the terminal:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install rbenv
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">brew <span class="nb">install </span>rbenv
 rbenv init
-touch ~/.bash_profile
-echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bash_profile
-source ~/.bash_profile
-</code></pre></div></div>
+<span class="nb">touch</span> ~/.bash_profile
+<span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+<span class="nb">source</span> ~/.bash_profile</code></pre></figure>
 
 <p>Copy and paste this into the terminal:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.4.1
-rbenv local 2.4.1
-</code></pre></div></div>
-<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">rbenv <span class="nb">install </span>2.5.1
+rbenv <span class="nb">local </span>2.5.1</code></pre></figure>
 
 <h3 id="linux">Linux</h3>
 
 <p><strong>Install git</strong>
 Copy and paste this into the terminal:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install git
-</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">sudo </span>apt-get <span class="nb">install </span>git</code></pre></figure>
 
 <p><strong>Install <a href="https://github.com/postmodern/ruby-install#readme">ruby-install</a></strong>
 Copy and paste this into the terminal:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
-tar -xzvf ruby-install-0.6.0.tar.gz
-cd ruby-install-0.6.0/
-sudo make install
-ruby-install ruby 2.4.1
-</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">wget <span class="nt">-O</span> ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzvf</span> ruby-install-0.6.0.tar.gz
+<span class="nb">cd </span>ruby-install-0.6.0/
+<span class="nb">sudo </span>make <span class="nb">install
+</span>ruby-install ruby 2.5.1</code></pre></figure>
 
 <p><strong>Install <a href="https://github.com/postmodern/chruby#readme">chruby</a></strong>
 Copy and paste this into the terminal:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ../
-wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-tar -xzvf chruby-0.3.9.tar.gz
-cd chruby-0.3.9/
-sudo make install
-sudo ./scripts/setup.sh
-xed ~/.bash_profile
-</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ../
+wget <span class="nt">-O</span> chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzvf</span> chruby-0.3.9.tar.gz
+<span class="nb">cd </span>chruby-0.3.9/
+<span class="nb">sudo </span>make <span class="nb">install
+sudo</span> ./scripts/setup.sh
+xed ~/.bash_profile</code></pre></figure>
 
 <p>Copy and paste this into the bash_profile file that opened in TextEdit:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">source</span> /usr/local/share/chruby/chruby.sh
+<span class="nb">source</span> /usr/local/share/chruby/auto.sh</code></pre></figure>
+
 <p>Save file and Close TextEdit</p>
 
 <p>Copy and paste this into the terminal and hit enter:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.bash_profile
-chruby 2.4.1
-</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">source</span> ~/.bash_profile
+chruby 2.5.1</code></pre></figure>
+
 
 <p></p>
-<h5>Last Updated: July 22, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

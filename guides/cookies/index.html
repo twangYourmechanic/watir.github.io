@@ -10,24 +10,62 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="There is a cookie API in Watir-WebDriver 0.5.2 onwards, that is easy to use.
+    <meta name="description" content="The biggest “gotcha” when working with cookies is that you need to actually be on the domain
+for which you want to interact with the cookies.
 
-require 'watir'
 browser = Watir::Browser.new
-browser.cookies.clear
-browser.cookies.add 'foo', 'bar', path: '/', expires: 10.days.from_now, secure: true
-browser.cookies.delete 'foo'
+browser.goto 'example.com'
+
+# Add
+browser.cookies.add 'foo', 'bar', path: '/path', expires: (Time.now + 10000), secure: true
+
+# List (wrong path)
+browser.cookies.to_a # =&gt; []
+
+# List (right path)
+browser.goto 'example.com/path'
 browser.cookies.to_a
+
+# Save to File
+browser.cookies.save '.cookies'
+
+# Delete specific cookie
+browser.cookies.delete 'foo'
+
+# Load from a File
+browser.cookies.load '.cookies'
+
+# Delete All cooies
+browser.cookies.clear
 
 " />
-    <meta property="og:description" content="There is a cookie API in Watir-WebDriver 0.5.2 onwards, that is easy to use.
+    <meta property="og:description" content="The biggest “gotcha” when working with cookies is that you need to actually be on the domain
+for which you want to interact with the cookies.
 
-require 'watir'
 browser = Watir::Browser.new
-browser.cookies.clear
-browser.cookies.add 'foo', 'bar', path: '/', expires: 10.days.from_now, secure: true
-browser.cookies.delete 'foo'
+browser.goto 'example.com'
+
+# Add
+browser.cookies.add 'foo', 'bar', path: '/path', expires: (Time.now + 10000), secure: true
+
+# List (wrong path)
+browser.cookies.to_a # =&gt; []
+
+# List (right path)
+browser.goto 'example.com/path'
 browser.cookies.to_a
+
+# Save to File
+browser.cookies.save '.cookies'
+
+# Delete specific cookie
+browser.cookies.delete 'foo'
+
+# Load from a File
+browser.cookies.load '.cookies'
+
+# Delete All cooies
+browser.cookies.clear
 
 " />
     
@@ -98,18 +136,37 @@ browser.cookies.to_a
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Cookies'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <p>There is a cookie API in Watir-WebDriver 0.5.2 onwards, that is easy to use.</p>
+    <p>The biggest “gotcha” when working with cookies is that you need to actually be on the domain
+for which you want to interact with the cookies.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
-<span class="n">browser</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
-<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">clear</span>
-<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">add</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="ss">path: </span><span class="s1">'/'</span><span class="p">,</span> <span class="ss">expires: </span><span class="mi">10</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">from_now</span><span class="p">,</span> <span class="ss">secure: </span><span class="kp">true</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'example.com'</span>
+
+<span class="c1"># Add</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">add</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="ss">path: </span><span class="s1">'/path'</span><span class="p">,</span> <span class="ss">expires: </span><span class="p">(</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">+</span> <span class="mi">10000</span><span class="p">),</span> <span class="ss">secure: </span><span class="kp">true</span>
+
+<span class="c1"># List (wrong path)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">to_a</span> <span class="c1"># =&gt; []</span>
+
+<span class="c1"># List (right path)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'example.com/path'</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">to_a</span>
+
+<span class="c1"># Save to File</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">save</span> <span class="s1">'.cookies'</span>
+
+<span class="c1"># Delete specific cookie</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'foo'</span>
-<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">to_a</span></code></pre></figure>
+
+<span class="c1"># Load from a File</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">load</span> <span class="s1">'.cookies'</span>
+
+<span class="c1"># Delete All cooies</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">clear</span></code></pre></figure>
 
 
 <p></p>
-<h5>Last Updated: July 19, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

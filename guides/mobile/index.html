@@ -10,7 +10,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="There are three options for using Watir to test mobile sites:
+    <meta name="description" content="There is an effort underway to implement a Watir API wrapper for Appium to test Native Mobile Applications.
+If you are interested in helping out, let us know.
+
+
+
+
+There are three options for using Watir to test mobile sites:
 
 
   Running tests against an embedded browser on a real device;
@@ -18,9 +24,13 @@
   Running tests against a desktop browser that is configured with the same resolution and user-agent credentials as a mobile browser.
 
 
-Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. There are documented details on setting up the iOS driver here and Android here. Using a real Apple device requires an Apple developer account which costs around $99.
+Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. 
+There are documented details on setting up the iOS driver here 
+and Android here. 
+Using a real Apple device requires an Apple developer account which costs around $99.
 
-A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. This is extremely easy to do with the webdriver-user-agent gem:
+A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. 
+This is extremely easy to do with the webdriver-user-agent gem:
 
 require 'watir'
 require 'webdriver-user-agent'
@@ -29,9 +39,16 @@ browser = Watir::Browser.new driver
 browser.goto 'tiffany.com'
 browser.url.should == 'http://m.tiffany.com/International.aspx'
 
-The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; portrait and landscape orientations are also available.
+The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; 
+portrait and landscape orientations are also available.
 " />
-    <meta property="og:description" content="There are three options for using Watir to test mobile sites:
+    <meta property="og:description" content="There is an effort underway to implement a Watir API wrapper for Appium to test Native Mobile Applications.
+If you are interested in helping out, let us know.
+
+
+
+
+There are three options for using Watir to test mobile sites:
 
 
   Running tests against an embedded browser on a real device;
@@ -39,9 +56,13 @@ The gem currently supports firefox and chrome as desktop browsers, and iphone, i
   Running tests against a desktop browser that is configured with the same resolution and user-agent credentials as a mobile browser.
 
 
-Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. There are documented details on setting up the iOS driver here and Android here. Using a real Apple device requires an Apple developer account which costs around $99.
+Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. 
+There are documented details on setting up the iOS driver here 
+and Android here. 
+Using a real Apple device requires an Apple developer account which costs around $99.
 
-A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. This is extremely easy to do with the webdriver-user-agent gem:
+A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. 
+This is extremely easy to do with the webdriver-user-agent gem:
 
 require 'watir'
 require 'webdriver-user-agent'
@@ -50,7 +71,8 @@ browser = Watir::Browser.new driver
 browser.goto 'tiffany.com'
 browser.url.should == 'http://m.tiffany.com/International.aspx'
 
-The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; portrait and landscape orientations are also available.
+The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; 
+portrait and landscape orientations are also available.
 " />
     
     <meta name="author" content="Watir Project" />
@@ -120,7 +142,13 @@ The gem currently supports firefox and chrome as desktop browsers, and iphone, i
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Mobile Devices'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <p>There are three options for using Watir to test mobile sites:</p>
+    <p>There is an effort underway to implement a Watir API wrapper for Appium to test Native Mobile Applications.
+If you are interested in helping out, let us know.</p>
+
+<!--- TODO: Shouldn't need a separate gem for this any more? --->
+<!--- TODO: Add Browser specific alternatives here --->
+
+<p>There are three options for using Watir to test mobile sites:</p>
 
 <ul>
   <li>Running tests against an embedded browser on a real device;</li>
@@ -128,9 +156,13 @@ The gem currently supports firefox and chrome as desktop browsers, and iphone, i
   <li>Running tests against a desktop browser that is configured with the same resolution and user-agent credentials as a mobile browser.</li>
 </ul>
 
-<p>Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. There are documented details on setting up the iOS driver <a href="http://code.google.com/p/selenium/wiki/IPhoneDriver">here</a> and Android <a href="http://code.google.com/p/selenium/wiki/AndroidDriver">here</a>. Using a real Apple device requires an Apple developer account which costs around $99.</p>
+<p>Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. 
+There are documented details on setting up the iOS driver <a href="http://code.google.com/p/selenium/wiki/IPhoneDriver">here</a> 
+and Android <a href="http://code.google.com/p/selenium/wiki/AndroidDriver">here</a>. 
+Using a real Apple device requires an Apple developer account which costs around $99.</p>
 
-<p>A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. This is extremely easy to do with the webdriver-user-agent gem:</p>
+<p>A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. 
+This is extremely easy to do with the webdriver-user-agent gem:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
 <span class="nb">require</span> <span class="s1">'webdriver-user-agent'</span>
@@ -139,10 +171,11 @@ The gem currently supports firefox and chrome as desktop browsers, and iphone, i
 <span class="n">browser</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'tiffany.com'</span>
 <span class="n">browser</span><span class="p">.</span><span class="nf">url</span><span class="p">.</span><span class="nf">should</span> <span class="o">==</span> <span class="s1">'http://m.tiffany.com/International.aspx'</span></code></pre></figure>
 
-<p>The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; portrait and landscape orientations are also available.</p>
+<p>The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; 
+portrait and landscape orientations are also available.</p>
 
 <p></p>
-<h5>Last Updated: July 22, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     

@@ -10,59 +10,77 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="The headless gem is a ruby wrapper for Xvfb that makes it super easy to run graphical applications (such as real web browsers) on a headless Linux machine. This gem is perfect for running headless Watir tests using a real browser.
+    <meta name="description" content="There are several options for running your tests headlessly. The first thing to consider is whether
+you actually need to run headless. Most options for this have limitations and require trade-offs.
 
-An Example
+Traditionally PhantomJS has been an option for running headlessly. The driver for this virtual browser
+has been deprecated, though, so it is no longer supported in Watir.
+
+Perhaps the best option for running headlessly is using the Headless gem. The biggest limitation
+for this is that it only works on Unix based systems. It is the actual browser run in a virtual
+GUI. This is a great option for using a real world browser, albeit on a minimally used platform.
+
+Headless gem
+
+Code for the before hook:
 
 require 'watir'
 require 'headless'
+
 headless = Headless.new
 headless.start
-b = Watir::Browser.start 'www.google.com'
-puts b.title
-b.close
+
+Code for the after hook:
+
 headless.destroy
 
-A Cucumber Example
+Browser specific options
 
-You should add the following code to your env.rb file:
 
-if ENV['HEADLESS']
-  require 'headless'
-  headless = Headless.new
-  headless.start
-  at_exit do
-    headless.destroy
-  end
-end
 
+Both Chrome and Firefox have implemented headless modes for their browsers that work on all platforms.
+Recognize that this option does not include all of the browser code, so not all of the browser features
+are implemented, and this will not be an exact replication of what a user will see in a real browser.
+
+Headless on Chrome
+
+Headless on Firefox
 " />
-    <meta property="og:description" content="The headless gem is a ruby wrapper for Xvfb that makes it super easy to run graphical applications (such as real web browsers) on a headless Linux machine. This gem is perfect for running headless Watir tests using a real browser.
+    <meta property="og:description" content="There are several options for running your tests headlessly. The first thing to consider is whether
+you actually need to run headless. Most options for this have limitations and require trade-offs.
 
-An Example
+Traditionally PhantomJS has been an option for running headlessly. The driver for this virtual browser
+has been deprecated, though, so it is no longer supported in Watir.
+
+Perhaps the best option for running headlessly is using the Headless gem. The biggest limitation
+for this is that it only works on Unix based systems. It is the actual browser run in a virtual
+GUI. This is a great option for using a real world browser, albeit on a minimally used platform.
+
+Headless gem
+
+Code for the before hook:
 
 require 'watir'
 require 'headless'
+
 headless = Headless.new
 headless.start
-b = Watir::Browser.start 'www.google.com'
-puts b.title
-b.close
+
+Code for the after hook:
+
 headless.destroy
 
-A Cucumber Example
+Browser specific options
 
-You should add the following code to your env.rb file:
 
-if ENV['HEADLESS']
-  require 'headless'
-  headless = Headless.new
-  headless.start
-  at_exit do
-    headless.destroy
-  end
-end
 
+Both Chrome and Firefox have implemented headless modes for their browsers that work on all platforms.
+Recognize that this option does not include all of the browser code, so not all of the browser features
+are implemented, and this will not be an exact replication of what a user will see in a real browser.
+
+Headless on Chrome
+
+Headless on Firefox
 " />
     
     <meta name="author" content="Watir Project" />
@@ -132,35 +150,44 @@ end
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Headless'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <p>The headless gem is a ruby wrapper for Xvfb that makes it super easy to run graphical applications (such as real web browsers) on a headless Linux machine. This gem is perfect for running headless Watir tests using a real browser.</p>
+    <p>There are several options for running your tests headlessly. The first thing to consider is whether
+you actually need to run headless. Most options for this have limitations and require trade-offs.</p>
 
-<h3 id="an-example">An Example</h3>
+<p>Traditionally PhantomJS has been an option for running headlessly. The driver for this virtual browser
+has been deprecated, though, so it is no longer supported in Watir.</p>
+
+<p>Perhaps the best option for running headlessly is using the Headless gem. The biggest limitation
+for this is that it only works on Unix based systems. It is the actual browser run in a virtual
+GUI. This is a great option for using a real world browser, albeit on a minimally used platform.</p>
+
+<h3 id="headless-gem">Headless gem</h3>
+
+<p>Code for the before hook:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
 <span class="nb">require</span> <span class="s1">'headless'</span>
+
 <span class="n">headless</span> <span class="o">=</span> <span class="no">Headless</span><span class="p">.</span><span class="nf">new</span>
-<span class="n">headless</span><span class="p">.</span><span class="nf">start</span>
-<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'www.google.com'</span>
-<span class="nb">puts</span> <span class="n">b</span><span class="p">.</span><span class="nf">title</span>
-<span class="n">b</span><span class="p">.</span><span class="nf">close</span>
-<span class="n">headless</span><span class="p">.</span><span class="nf">destroy</span></code></pre></figure>
+<span class="n">headless</span><span class="p">.</span><span class="nf">start</span></code></pre></figure>
 
-<h3 id="a-cucumber-example">A Cucumber Example</h3>
+<p>Code for the after hook:</p>
 
-<p>You should add the following code to your env.rb file:</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">headless</span><span class="p">.</span><span class="nf">destroy</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">if</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'HEADLESS'</span><span class="p">]</span>
-  <span class="nb">require</span> <span class="s1">'headless'</span>
-  <span class="n">headless</span> <span class="o">=</span> <span class="no">Headless</span><span class="p">.</span><span class="nf">new</span>
-  <span class="n">headless</span><span class="p">.</span><span class="nf">start</span>
-  <span class="nb">at_exit</span> <span class="k">do</span>
-    <span class="n">headless</span><span class="p">.</span><span class="nf">destroy</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
+<h3 id="browser-specific-options">Browser specific options</h3>
 
+<!--- TODO: Move this section from browsers to here --->
+
+<p>Both Chrome and Firefox have implemented headless modes for their browsers that work on all platforms.
+Recognize that this option does not include all of the browser code, so not all of the browser features
+are implemented, and this will not be an exact replication of what a user will see in a real browser.</p>
+
+<p><a href="/guides/firefox/#headless">Headless on Chrome</a></p>
+
+<p><a href="/guides/firefox/#headless">Headless on Firefox</a></p>
 
 <p></p>
-<h5>Last Updated: July 22, 2018</h5>
+<h5>Last Updated: August 03, 2018</h5>
   </article>
   <aside>
     
