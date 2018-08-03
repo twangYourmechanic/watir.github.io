@@ -1,5 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-03T20:30:38+00:00</updated><id>/</id><title type="html">Watir Project</title><subtitle>Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</subtitle><entry><title type="html">Watir 6.12</title><link href="/watir-6-12/" rel="alternate" type="text/html" title="Watir 6.12" /><published>2018-07-24T00:00:00+00:00</published><updated>2018-07-24T18:54:55+00:00</updated><id>/watir-6-12</id><content type="html" xml:base="/watir-6-12/">&lt;p&gt;Watir 6.12.0 is now available on RubyGems. Three new contributors to Watir and several great new features available.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-03T23:55:22+00:00</updated><id>/</id><title type="html">Watir Project</title><subtitle>Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</subtitle><entry><title type="html">Major Website Content Updates</title><link href="/website-content/" rel="alternate" type="text/html" title="Major Website Content Updates" /><published>2018-08-03T00:00:00+00:00</published><updated>2018-08-03T23:53:23+00:00</updated><id>/website-content</id><content type="html" xml:base="/website-content/">&lt;p&gt;The Guides and links to Resources have been updated and expanded on the website.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Please take a look at the &lt;a href=&quot;/guides&quot;&gt;Watir Guides&lt;/a&gt;, especially the one on &lt;a href=&quot;/guides/locating/&quot;&gt;Locating Elements&lt;/a&gt;.
+If you have any additional code or examples you’d like to add, or any additional articles you’d like
+to suggest or write, please let us know. There are at least a dozen additional pages of information
+we can create and tons of code examples that can be added. Please take a stab at anything
+that sounds interesting.&lt;/p&gt;
+
+&lt;p&gt;In addition to the Guides, the Sidebar has been updated with links to content that has finally been
+migrated from wiki entries and README files from various deprecated repositories. The 
+  &lt;a href=&quot;/add-ons/&quot;&gt;add-ons page&lt;/a&gt; in particular can use additional pruning and updating.&lt;/p&gt;
+
+&lt;p&gt;Does your company use Watir? Is your logo on our &lt;a href=&quot;/users/&quot;&gt;Users Page&lt;/a&gt;? Give us your information
+so we can add it!&lt;/p&gt;
+
+&lt;p&gt;Thanks for visiting our website and keeping it a great resource for learning to use Watir.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Website" /><summary type="html">The Guides and links to Resources have been updated and expanded on the website.</summary></entry><entry><title type="html">Watir 6.12</title><link href="/watir-6-12/" rel="alternate" type="text/html" title="Watir 6.12" /><published>2018-07-24T00:00:00+00:00</published><updated>2018-07-24T18:54:55+00:00</updated><id>/watir-6-12</id><content type="html" xml:base="/watir-6-12/">&lt;p&gt;Watir 6.12.0 is now available on RubyGems. Three new contributors to Watir and several great new features available.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -513,107 +530,4 @@ of regular expression, this can be a small or slighly less small performance imp
 change (for reasons). There are a number of other potential features that will be tracked
 in the &lt;a href=&quot;https://github.com/titusfortner/watigiri/issues&quot;&gt;Watigiri Issue Tracker&lt;/a&gt;. Please add
 additional feature requests or issues you find with this gem. Support for and discussion
- about this gem can be found in the #watir channel of &lt;a href=&quot;http://seleniumhq.herokuapp.com&quot;&gt;Selenium Slack&lt;/a&gt;.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Addons" /><summary type="html">The initial version of the Watigiri gem has just been released. Watigiri is an add-on to Watir that allows actions to be taken using Nokogiri (an HTML parser that uses native C or Java libraries) instead of Selenium in the places it makes sense to do so.</summary></entry><entry><title type="html">Watir 6.8 Released!</title><link href="/watir-6-8/" rel="alternate" type="text/html" title="Watir 6.8 Released!" /><published>2017-08-29T00:00:00+00:00</published><updated>2018-07-19T00:26:22+00:00</updated><id>/watir-6-8</id><content type="html" xml:base="/watir-6-8/">&lt;p&gt;Watir 6.8.0 is now available on RubyGems! Several new features including new methods to increase performance.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.8&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;bang-methods&quot;&gt;Bang Methods&lt;/h3&gt;
-
-&lt;p&gt;Drivers are slow when it comes to typing text. Typically the intent of a 
-test that enters text into a field is to verify:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;the user can type into the field&lt;/li&gt;
-  &lt;li&gt;the actions associated with events get fired&lt;/li&gt;
-  &lt;li&gt;the application properly handles the data&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;None of these three things require that a driver type each character.&lt;/p&gt;
-
-&lt;p&gt;By using a &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set!&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set&lt;/code&gt;, Watir will:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;send clear via the applicable driver command to ensure the user
- can interact with the field&lt;/li&gt;
-  &lt;li&gt;use JavaScript to quickly fill the field with the specified text&lt;/li&gt;
-  &lt;li&gt;type the last character via the applicable driver command to ensure that
-  appropriate events get fired&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Depending on how much text is being entered, this could provide a huge
-performance improvement without negatively impacting the effectiveness of the test.&lt;/p&gt;
-
-&lt;p&gt;Along with &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set!&lt;/code&gt;, Watir now supports bang (&lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;) methods with 
-JavaScript implementations for:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#click!&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#double_click!&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select!&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select_all!&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The clicks are unlikely to provide a performance improvement and should be used sparingly.
- The Select methods have the potential to decrease the time it takes to 
- interact with especially large select lists.&lt;/p&gt;
-
-&lt;p&gt;Let us know what kind of performance improvements you see with these methods.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;radio-sets&quot;&gt;Radio Sets&lt;/h3&gt;
-
-&lt;p&gt;Input elements of &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;radio&quot;&lt;/code&gt; are not independent (clicking one radio button in a
-set will de-select another radio button in the set), but until now Watir has required 
- users to treat them independently. &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#radio_set&lt;/code&gt; now allows users to 
- identify the collection of related radio buttons and interact with it
- similarly to how one currently interacts with a Select List.&lt;/p&gt;
-
-&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;RadioSet&lt;/code&gt; is initialized with a locator for any of the constituent radio buttons.
- When the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; value is the same between radio buttons, the &lt;code class=&quot;highlighter-rouge&quot;&gt;RadioSet&lt;/code&gt; initialized
- by their locators will be the same:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;radio_set_yes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radio_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_newsletter_yes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;radio_set_no&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radio_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_newsletter_no&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;radio_set_yes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radio_set_no&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;RadioSet&lt;/code&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Can be iterated over&lt;/li&gt;
-  &lt;li&gt;Returns currently selected radio button with &lt;code class=&quot;highlighter-rouge&quot;&gt;#selected&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Returns text and value of the selected radio button with &lt;code class=&quot;highlighter-rouge&quot;&gt;#text&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#value&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Returns whether the radio button with the provided label/text is
- currently selected with &lt;code class=&quot;highlighter-rouge&quot;&gt;#selected?(#{label})&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Selects the radio button with the specified label/text with: &lt;code class=&quot;highlighter-rouge&quot;&gt;#select(#{label})&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;selecting-drop-down-options&quot;&gt;Selecting drop down options&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select_value&lt;/code&gt; has been deprecated. &lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select&lt;/code&gt; will now allow users
-to locate elements by text, label or value. Having one primary way to select
-options both matches the original Watir implementation as well as making it
-easier to support automatic form filling methods in Page Object libraries.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;input-label&quot;&gt;Input Label&lt;/h3&gt;
-
-&lt;p&gt;Sometimes a user might want to click on the label of an input element instead of the
-element itself. With the new &lt;code class=&quot;highlighter-rouge&quot;&gt;Input#label&lt;/code&gt;, a user can now do:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;radio_button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_newsletter_yes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;radio_button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;click&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
-for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.8.0 is now available on RubyGems! Several new features including new methods to increase performance.</summary></entry></feed>
+ about this gem can be found in the #watir channel of &lt;a href=&quot;http://seleniumhq.herokuapp.com&quot;&gt;Selenium Slack&lt;/a&gt;.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Addons" /><summary type="html">The initial version of the Watigiri gem has just been released. Watigiri is an add-on to Watir that allows actions to be taken using Nokogiri (an HTML parser that uses native C or Java libraries) instead of Selenium in the places it makes sense to do so.</summary></entry></feed>
