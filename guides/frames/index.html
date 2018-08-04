@@ -84,11 +84,21 @@
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Frames'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <p>Think of an IFrame as a page of HTML inside of another page of HTML. By default the driver
+    <p>Think of an IFrame as a page of HTML inside of another page of HTML. They will look
+like this, with a <code class="highlighter-rouge">src</code> attribute that includes the inserted html:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Iframes<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"iframe_1.html"</span> <span class="na">id=</span><span class="s">"iframe_1"</span> <span class="na">name=</span><span class="s">"iframe1"</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+    <span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"frame_2.html"</span> <span class="na">id=</span><span class="s">"iframe_2"</span> <span class="na">name=</span><span class="s">"iframe2"</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre></figure>
+
+<p>By default the browser driver
 only looks for elements in the top level browsing context. If an element exists inside
 of an iframe, it must be told to look there. Browser Context switching is handled for you in Watir.
 The only requirement is that when defining an element, it must include the full address to that
-element including a reference to any iframes it is nested inside.</p>
+element including a reference to any iframes it is nested inside. Recognize that it is possilbe
+for iframes to be nested inside of iframes.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span><span class="p">.</span><span class="nf">iframe</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'outside'</span><span class="p">).</span><span class="nf">iframe</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'inside'</span><span class="p">).</span><span class="nf">div</span><span class="p">.</span><span class="nf">text</span>
 <span class="n">b</span><span class="p">.</span><span class="nf">iframe</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'second'</span><span class="p">).</span><span class="nf">text_field</span><span class="p">.</span><span class="nf">set</span> <span class="s1">'foo"
@@ -99,7 +109,7 @@ if the page has iframes and will advise the user to check to see if the element 
 an IFrame.</p>
 
 <p></p>
-<h5>Last Updated: August 03, 2018</h5>
+<h5>Last Updated: August 04, 2018</h5>
   </article>
   <aside>
     
