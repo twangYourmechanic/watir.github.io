@@ -84,21 +84,210 @@
         <span>&nbsp;</span>
         <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Page Objects'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span></h2>
-    <!--- TODO: Need to list the various options for this & discuss overall theory --->
+    <!--- TODO: This code needs to be re-verified  --->
 
 <p>The Page Object pattern is a way to represent pages and their elements in reusable classes. 
-The Watir wiki has a <a href="https://github.com/watir/watir/wiki/Page-Objects">thorough explanation</a> 
-of the concept.</p>
+Page Objects eliminate duplication by building an abstraction that allows you to write browser tests for 
+maximum maintainability and robustness.</p>
 
-<p>There are several gems that help you implement page objects:</p>
+<p>The Page Object pattern originated in WebDriver, and a great explanation (with examples in Java) 
+can be found <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects">here</a>.</p>
 
+<p>You create a Page object for each page of your application, which has methods that represent the services 
+available on a given page. You should encapsulate all the implementation details of the 
+system (i.e. HTML elements, waiting for the DOM to update etc) in these objects. 
+Your test code (i.e. RSpec code blocks, Cucumber step definitions) should never access the 
+underlying Browser instance or deal with HTML elements directly.</p>
+
+<p>In essence, you should have the mindset that your test code should not need to change if your 
+web app was rewritten as a desktop app - you would simply need another implementation of the page 
+object layer. Although strictly speaking a set of pages isn’t necessarily a good way to model a 
+desktop application, having this in mind makes it easy to decide what should go where.</p>
+
+<p>The examples below assumes you are familiar with <a href="http://rspec.info/">RSpec</a> way of doing test assertions.</p>
+
+<p>Consider this script:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">browser</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">goto</span> <span class="s2">"http://example.com/login"</span>
+
+  <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"user"</span><span class="p">).</span><span class="nf">set</span> <span class="s2">"Mom"</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"pass"</span><span class="p">).</span><span class="nf">set</span> <span class="s2">"s3cr3t"</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"login"</span><span class="p">).</span><span class="nf">click</span>
+
+  <span class="no">Watir</span><span class="o">::</span><span class="no">Wait</span><span class="p">.</span><span class="nf">until</span> <span class="p">{</span> <span class="n">browser</span><span class="p">.</span><span class="nf">title</span> <span class="o">==</span> <span class="s2">"Your Profile"</span> <span class="p">}</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"logged-in"</span><span class="p">).</span><span class="nf">should</span> <span class="n">exist</span></code></pre></figure>
+
+<p>With page objects, this could become:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">site</span> <span class="o">=</span> <span class="no">Site</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+
+  <span class="n">login_page</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">login_page</span><span class="p">.</span><span class="nf">open</span>
+  <span class="n">user_page</span> <span class="o">=</span> <span class="n">login_page</span><span class="p">.</span><span class="nf">login_as</span> <span class="s2">"Mom"</span><span class="p">,</span> <span class="s2">"s3cr3t"</span>
+
+  <span class="n">user_page</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_logged_in</span></code></pre></figure>
+
+<p>An implementation of this could be:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+  <span class="k">class</span> <span class="nc">BrowserContainer</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">browser</span><span class="p">)</span>
+      <span class="vi">@browser</span> <span class="o">=</span> <span class="n">browser</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">class</span> <span class="nc">Site</span> <span class="o">&lt;</span> <span class="no">BrowserContainer</span>
+    <span class="k">def</span> <span class="nf">login_page</span>
+      <span class="vi">@login_page</span> <span class="o">=</span> <span class="no">LoginPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@browser</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">user_page</span>
+      <span class="vi">@user_page</span> <span class="o">=</span> <span class="no">UserPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@browser</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">close</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">close</span>
+    <span class="k">end</span>
+  <span class="k">end</span> <span class="c1"># Site</span>
+
+  <span class="k">class</span> <span class="nc">LoginPage</span> <span class="o">&lt;</span> <span class="no">BrowserContainer</span>
+    <span class="no">URL</span> <span class="o">=</span> <span class="s2">"http://example.com/login"</span>
+
+    <span class="k">def</span> <span class="nf">open</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">goto</span> <span class="no">URL</span>
+      <span class="nb">self</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">login_as</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pass</span><span class="p">)</span>
+      <span class="n">user_field</span><span class="p">.</span><span class="nf">set</span> <span class="n">user</span>
+      <span class="n">password_field</span><span class="p">.</span><span class="nf">set</span> <span class="n">pass</span>
+
+      <span class="n">login_button</span><span class="p">.</span><span class="nf">click</span>
+
+      <span class="n">next_page</span> <span class="o">=</span> <span class="no">UserPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@browser</span><span class="p">)</span>
+      <span class="no">Watir</span><span class="o">::</span><span class="no">Wait</span><span class="p">.</span><span class="nf">until</span> <span class="p">{</span> <span class="n">next_page</span><span class="p">.</span><span class="nf">loaded?</span> <span class="p">}</span>
+
+      <span class="n">next_page</span>
+    <span class="k">end</span>
+
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">user_field</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"user"</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">password_field</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"pass"</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">login_button</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"login"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span> <span class="c1"># LoginPage</span>
+
+  <span class="k">class</span> <span class="nc">UserPage</span> <span class="o">&lt;</span> <span class="no">BrowserContainer</span>
+    <span class="k">def</span> <span class="nf">logged_in?</span>
+      <span class="n">logged_in_element</span><span class="p">.</span><span class="nf">exists?</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">loaded?</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">title</span> <span class="o">==</span> <span class="s2">"Your Profile"</span>
+    <span class="k">end</span>
+
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">logged_in_element</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"logged-in"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span> <span class="c1"># UserPage</span></code></pre></figure>
+
+<p>This can then be integrated with other tools. For example, using Cucumber you could have this in env.rb:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+<span class="nb">require</span> <span class="s2">"watir-webdriver"</span>
+<span class="nb">require</span> <span class="s2">"/path/to/site"</span>
+
+<span class="k">module</span> <span class="nn">SiteHelper</span>
+  <span class="k">def</span> <span class="nf">site</span>
+    <span class="vi">@site</span> <span class="o">||=</span> <span class="p">(</span>
+      <span class="no">Site</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:firefox</span><span class="p">))</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">World</span><span class="p">(</span><span class="no">SiteHelper</span><span class="p">)</span></code></pre></figure>
+
+<p>And this step definition:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+ <span class="no">Given</span> <span class="sr">/I have successfully logged in/</span> <span class="k">do</span>
+   <span class="n">login_page</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">login_page</span><span class="p">.</span><span class="nf">open</span>
+
+   <span class="n">user_page</span> <span class="o">=</span> <span class="n">login_page</span><span class="p">.</span><span class="nf">login_as</span> <span class="s2">"Mom"</span><span class="p">,</span> <span class="s2">"s3cr3t"</span>
+   <span class="n">user_page</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_logged_in</span>
+ <span class="k">end</span></code></pre></figure>
+
+<p>Assertions/expectations should be kept in your test code. Don’t use assertions
+in your page objects; instead ask them about their state, and assert on the result. E.g.:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+
+  <span class="c1">#</span>
+  <span class="c1"># bad example</span>
+  <span class="c1">#</span>
+
+  <span class="k">class</span> <span class="nc">SomePage</span>
+    <span class="k">def</span> <span class="nf">assert_loaded</span>
+      <span class="k">raise</span> <span class="s2">"not loaded"</span> <span class="k">unless</span> <span class="n">some_element</span><span class="p">.</span><span class="nf">exists?</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"should be loaded"</span> <span class="k">do</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">assert_loaded</span>
+  <span class="k">end</span>
+
+  <span class="c1">#</span>
+  <span class="c1"># good example</span>
+  <span class="c1">#</span>
+
+  <span class="k">class</span> <span class="nc">SomePage</span>
+    <span class="k">def</span> <span class="nf">loaded?</span>
+      <span class="n">some_element</span><span class="p">.</span><span class="nf">exists?</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"should be loaded"</span> <span class="k">do</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_loaded</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p>See also:</p>
+
+<p><strong>Page Object gems that work with Watir-webdriver</strong></p>
 <ul>
+  <li><a href="https://github.com/cheezy/page-object">Cheezy’s Page Object gem for Watir-webdriver and Selenium</a></li>
+  <li><a href="https://github.com/rSmart/TestFactory">The rSmart Test-Factory gem for Page &amp; Data objects using Watir-webdriver</a></li>
   <li><a href="http://watirmelon.com/2011/05/05/introducing-the-watir-page-helper-gem/">Watir Page Helper</a></li>
   <li><a href="http://github.com/jarib/loadable_component">LoadableComponent</a></li>
 </ul>
 
+<p><strong>Blog postings related to Page Objects and Watir-webdriver</strong></p>
+<ul>
+  <li>cheezyworld’s series on UI testing <a href="http://www.cheezyworld.com/2010/11/09/ui-tests-not-brittle/">part 1</a>, <a href="http://www.cheezyworld.com/2010/11/13/ui-tests-part-two/">part 2</a>, <a href="http://www.cheezyworld.com/2010/11/19/ui-tests-introducing-a-simple-dsl/">part 3</a>, <a href="http://www.cheezyworld.com/2010/11/21/ui-tests-default-dat/">part 4</a>, <a href="http://www.cheezyworld.com/2010/12/16/ui-tests-putting-it-all-together/">part 5</a></li>
+  <li>Watermelon blog article on <a href="http://watirmelon.com/2012/06/04/roll-your-own-page-objects/">‘roll your own’ page objects</a></li>
+</ul>
+
+<p><strong>Blog postings related to Page Objects and webdriver/Selenium</strong></p>
+<ul>
+  <li><a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects">Page Objects on the Selenium Wiki</a></li>
+  <li><a href="http://www.pragprog.com/magazines/2010-08/page-objects-in-python">Page Objects in Python</a></li>
+  <li><a href="http://www.peternewhook.com/2010/09/automated-testing-pageobjects-webdriver/">Automated Testing using Page Objects and WebDriver</a></li>
+  <li><a href="http://blog.m.artins.net/acceptance-tests-with-jbehave-selenium-page-objects/">Acceptance tests with JBehave, Selenium and Page Objects</a></li>
+  <li><a href="http://www.slideshare.net/dantebriones/using-the-page-object-pattern">Using the Page Object pattern</a></li>
+  <li><a href="http://www.wakaleo.com/blog/selenium-2-web-driver-the-land-where-page-objects-are-king">Selenium 2/Web Driver - the land where Page Objects are king!</a></li>
+</ul>
+
 <p></p>
-<h5>Last Updated: August 03, 2018</h5>
+<h5>Last Updated: August 04, 2018</h5>
   </article>
   <aside>
     
