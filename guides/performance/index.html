@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Measure Page Performance – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</title>
+    <title>Measure Page Performance – Watir Project</title>
 
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -10,90 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="
-
-The Watir-Performance gem aims to provide a set of navigation timing 
-metrics for Watir actions using a W3C page performance standard. 
-This is a perfect solution to capture response time metrics, 
-and it’s very straightforward to do.  Works in Chrome, Firefox, Edge and IE9 and up. 
-Currently no Safari support.
-
-require 'watir'
-require 'watir-performance'
-
-10.times do
-  b = Watir::Browser.new :chrome
-  b.goto 'http://watir.com'
-  load_secs = b.performance.summary[:response_time] / 1000
-  puts "Load Time: #{load_secs} seconds."
-  b.close
-end
-
-This produces something like:
-
-Load Time: 3.701 seconds.
-Load Time: 0.694 seconds.
-Load Time: 1.874 seconds.
-Load Time: 1.721 seconds.
-Load Time: 2.096 seconds.
-Load Time: 0.823 seconds.
-Load Time: 2.362 seconds.
-Load Time: 1.008 seconds.
-Load Time: 1.761 seconds.
-Load Time: 2.066 seconds.
-
-List of available metric groupings
-
-
-  :summary
-  :navigation
-  :memory
-  :timing
-
-" />
-    <meta property="og:description" content="
-
-The Watir-Performance gem aims to provide a set of navigation timing 
-metrics for Watir actions using a W3C page performance standard. 
-This is a perfect solution to capture response time metrics, 
-and it’s very straightforward to do.  Works in Chrome, Firefox, Edge and IE9 and up. 
-Currently no Safari support.
-
-require 'watir'
-require 'watir-performance'
-
-10.times do
-  b = Watir::Browser.new :chrome
-  b.goto 'http://watir.com'
-  load_secs = b.performance.summary[:response_time] / 1000
-  puts "Load Time: #{load_secs} seconds."
-  b.close
-end
-
-This produces something like:
-
-Load Time: 3.701 seconds.
-Load Time: 0.694 seconds.
-Load Time: 1.874 seconds.
-Load Time: 1.721 seconds.
-Load Time: 2.096 seconds.
-Load Time: 0.823 seconds.
-Load Time: 2.362 seconds.
-Load Time: 1.008 seconds.
-Load Time: 1.761 seconds.
-Load Time: 2.066 seconds.
-
-List of available metric groupings
-
-
-  :summary
-  :navigation
-  :memory
-  :timing
-
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
 " />
     
+
+    
     <meta name="author" content="Watir Project" />
+    
 
     
     <meta property="og:title" content="Measure Page Performance" />

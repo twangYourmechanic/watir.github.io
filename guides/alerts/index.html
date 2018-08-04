@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Javascript Popups – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</title>
+    <title>Javascript Popups – Watir Project</title>
 
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -10,124 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="JavaScript dialogs are fairly common in web applications.
-
-Watir has an inbuilt library for handling these dialogs, and capturing values.
-
-Javascript Alerts
-
-# Check if alert is shown
-browser.alert.exists?
-
-# Get text of alert
-browser.alert.text
-
-# Close alert
-browser.alert.ok
-browser.alert.close
-
-Javascript Confirms
-
-# Accept confirm
-browser.alert.ok
-
-# Cancel confirm
-browser.alert.close
-
-Javascript Prompt
-
-# Enter text to prompt
-browser.alert.set 'Prompt answer'
-
-# Accept prompt
-browser.alert.ok
-
-# Cancel prompt
-browser.alert.close
-
-Alternative Method
-
-If you’re having trouble using the above method, you can override the JavaScript functions to return the value you want, so when they’re meant to show, they don’t!
-
-# don't return anything for alert
-browser.execute_script('window.alert = function() {}')
-
-# return some string for prompt to simulate user entering it
-browser.execute_script("window.prompt = function() {return 'my name'}")
-
-# return null for prompt to simulate clicking Cancel
-browser.execute_script('window.prompt = function() {return null}')
-
-# return true for confirm to simulate clicking OK
-browser.execute_script('window.confirm = function() {return true}')
-
-# return false for confirm to simulate clicking Cancel
-browser.execute_script('window.confirm = function() {return false}')
-
-# don't return anything for leave page popup
-browser.execute_script('window.onbeforeunload = null')
-
-" />
-    <meta property="og:description" content="JavaScript dialogs are fairly common in web applications.
-
-Watir has an inbuilt library for handling these dialogs, and capturing values.
-
-Javascript Alerts
-
-# Check if alert is shown
-browser.alert.exists?
-
-# Get text of alert
-browser.alert.text
-
-# Close alert
-browser.alert.ok
-browser.alert.close
-
-Javascript Confirms
-
-# Accept confirm
-browser.alert.ok
-
-# Cancel confirm
-browser.alert.close
-
-Javascript Prompt
-
-# Enter text to prompt
-browser.alert.set 'Prompt answer'
-
-# Accept prompt
-browser.alert.ok
-
-# Cancel prompt
-browser.alert.close
-
-Alternative Method
-
-If you’re having trouble using the above method, you can override the JavaScript functions to return the value you want, so when they’re meant to show, they don’t!
-
-# don't return anything for alert
-browser.execute_script('window.alert = function() {}')
-
-# return some string for prompt to simulate user entering it
-browser.execute_script("window.prompt = function() {return 'my name'}")
-
-# return null for prompt to simulate clicking Cancel
-browser.execute_script('window.prompt = function() {return null}')
-
-# return true for confirm to simulate clicking OK
-browser.execute_script('window.confirm = function() {return true}')
-
-# return false for confirm to simulate clicking Cancel
-browser.execute_script('window.confirm = function() {return false}')
-
-# don't return anything for leave page popup
-browser.execute_script('window.onbeforeunload = null')
-
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
 " />
     
+
+    
     <meta name="author" content="Watir Project" />
+    
 
     
     <meta property="og:title" content="Javascript Popups" />

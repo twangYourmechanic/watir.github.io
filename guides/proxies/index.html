@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Browser Proxies – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</title>
+    <title>Browser Proxies – Watir Project</title>
 
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -10,68 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="
-
-
-In many cases, you can specify a proxy to use with the proxy: {} option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
-
-Example: using a proxy in Chrome or Firefox
-
-proxy = {
-  http: 'my.proxy.com:8080',
-  ssl:  'my.proxy.com:8080'
-}
-
-firefox_browser = Watir::Browser.new :firefox, proxy: proxy
-
-remote_firefox  = Watir::Browser.new :firefox, url: REMOTE_SELENIUM, proxy: proxy
-
-chrome_browser  = Watir::Browser.new :chrome, proxy: proxy
-
-remote_chrome   = Watir::Browser.new :chrome, url: REMOTE_SELENIUM, proxy: proxy
-
-Be sure to specify both :http and :ssl to route both types of traffic through your proxy.
-
-Under the hood, this is passing options to create a Selenium::WebDriver::Proxy object.
-
-Example: setting a http and https proxy for Remote Chrome
-
-proxy = 'my.proxy.com:8080'
-browser = Watir::Browser.new :chrome, url: REMOTE_URL, proxy: {http: proxy, ssl: proxy}
-
-" />
-    <meta property="og:description" content="
-
-
-In many cases, you can specify a proxy to use with the proxy: {} option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
-
-Example: using a proxy in Chrome or Firefox
-
-proxy = {
-  http: 'my.proxy.com:8080',
-  ssl:  'my.proxy.com:8080'
-}
-
-firefox_browser = Watir::Browser.new :firefox, proxy: proxy
-
-remote_firefox  = Watir::Browser.new :firefox, url: REMOTE_SELENIUM, proxy: proxy
-
-chrome_browser  = Watir::Browser.new :chrome, proxy: proxy
-
-remote_chrome   = Watir::Browser.new :chrome, url: REMOTE_SELENIUM, proxy: proxy
-
-Be sure to specify both :http and :ssl to route both types of traffic through your proxy.
-
-Under the hood, this is passing options to create a Selenium::WebDriver::Proxy object.
-
-Example: setting a http and https proxy for Remote Chrome
-
-proxy = 'my.proxy.com:8080'
-browser = Watir::Browser.new :chrome, url: REMOTE_URL, proxy: {http: proxy, ssl: proxy}
-
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
 " />
     
+
+    
     <meta name="author" content="Watir Project" />
+    
 
     
     <meta property="og:title" content="Browser Proxies" />

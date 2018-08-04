@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Browser Certificates – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</title>
+    <title>Browser Certificates – Watir Project</title>
 
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -10,52 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="
-
-Firefox
-
-The Firefox driver properly handles untrusted certificates by default.
-
-If you have a trusted certificate, but there is some other certificate error such as a hostname mismatch (eg. using a production certificate in test), you should do the following:
-
-profile = Selenium::WebDriver::Firefox::Profile.new
-profile.assume_untrusted_certificate_issuer = false
-b = Watir::Browser.new :firefox, profile: profile
-
-The reason this is needed is explained here.
-
-Chrome
-
-It is easy to ignore invalid Browser certificates in Google Chrome by passing a command line switch:
-
-Watir::Browser.new :chrome, switches: ['--ignore-certificate-errors']
-
-
-" />
-    <meta property="og:description" content="
-
-Firefox
-
-The Firefox driver properly handles untrusted certificates by default.
-
-If you have a trusted certificate, but there is some other certificate error such as a hostname mismatch (eg. using a production certificate in test), you should do the following:
-
-profile = Selenium::WebDriver::Firefox::Profile.new
-profile.assume_untrusted_certificate_issuer = false
-b = Watir::Browser.new :firefox, profile: profile
-
-The reason this is needed is explained here.
-
-Chrome
-
-It is easy to ignore invalid Browser certificates in Google Chrome by passing a command line switch:
-
-Watir::Browser.new :chrome, switches: ['--ignore-certificate-errors']
-
-
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
 " />
     
+
+    
     <meta name="author" content="Watir Project" />
+    
 
     
     <meta property="og:title" content="Browser Certificates" />

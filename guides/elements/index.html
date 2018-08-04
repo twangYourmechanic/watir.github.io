@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Web Elements – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</title>
+    <title>Web Elements – Watir Project</title>
 
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -10,144 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="Watir automatically generates classes and methods for all HTML5.1 and SVG2 supported elements and 
-their associated attributes. These classes are encapsulated to give easier access to their 
-specific attributes, making it easier to locate them, and providing custom features
-unique to them.
-
-
-
-Here are some basic examples for interacting with elements:
-
-Text Fields
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-t = b.text_field id: 'entry_1000000'
-t.exists?
-t.set 'your name'
-t.value
-
-Select Lists – Combos
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-s = b.select_list id: 'entry_1000001'
-s.select 'Ruby'
-s.selected_options
-
-Radios
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-r = b.radio value: 'A gem'
-r.exists?
-r.set
-r.set?
-
-Checkboxes
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-c = b.checkbox value: '1.9.2'
-c.exists?
-c.set
-c.set?
-
-Buttons
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-btn = b.button value: 'Submit'
-btn.exists?
-btn.click
-
-Links
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-l = b.link text: 'Google Forms'
-l.exists?
-l.click
-
-Divs &amp; Spans
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-d = b.div class: 'ss-form-desc ss-no-ignore-whitespace'
-d.exists?
-d.text
-s = b.span class: 'powered-by-text'
-s.exists?
-s.text
-
-WYSIWYG Editors
-
-See: WYSIWYG Editors page
-" />
-    <meta property="og:description" content="Watir automatically generates classes and methods for all HTML5.1 and SVG2 supported elements and 
-their associated attributes. These classes are encapsulated to give easier access to their 
-specific attributes, making it easier to locate them, and providing custom features
-unique to them.
-
-
-
-Here are some basic examples for interacting with elements:
-
-Text Fields
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-t = b.text_field id: 'entry_1000000'
-t.exists?
-t.set 'your name'
-t.value
-
-Select Lists – Combos
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-s = b.select_list id: 'entry_1000001'
-s.select 'Ruby'
-s.selected_options
-
-Radios
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-r = b.radio value: 'A gem'
-r.exists?
-r.set
-r.set?
-
-Checkboxes
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-c = b.checkbox value: '1.9.2'
-c.exists?
-c.set
-c.set?
-
-Buttons
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-btn = b.button value: 'Submit'
-btn.exists?
-btn.click
-
-Links
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-l = b.link text: 'Google Forms'
-l.exists?
-l.click
-
-Divs &amp; Spans
-
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-d = b.div class: 'ss-form-desc ss-no-ignore-whitespace'
-d.exists?
-d.text
-s = b.span class: 'powered-by-text'
-s.exists?
-s.text
-
-WYSIWYG Editors
-
-See: WYSIWYG Editors page
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
 " />
     
+
+    
     <meta name="author" content="Watir Project" />
+    
 
     
     <meta property="og:title" content="Web Elements" />

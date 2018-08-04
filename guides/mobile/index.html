@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mobile Devices – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
-</title>
+    <title>Mobile Devices – Watir Project</title>
 
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -10,72 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="There is an effort underway to implement a Watir API wrapper for Appium to test Native Mobile Applications.
-If you are interested in helping out, let us know.
-
-
-
-
-There are three options for using Watir to test mobile sites:
-
-
-  Running tests against an embedded browser on a real device;
-  Running tests against an embedded browser on a device emulator on a desktop machine; or
-  Running tests against a desktop browser that is configured with the same resolution and user-agent credentials as a mobile browser.
-
-
-Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. 
-There are documented details on setting up the iOS driver here 
-and Android here. 
-Using a real Apple device requires an Apple developer account which costs around $99.
-
-A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. 
-This is extremely easy to do with the webdriver-user-agent gem:
-
-require 'watir'
-require 'webdriver-user-agent'
-driver = Webdriver::UserAgent.driver(browser: :chrome, agent: :iphone, orientation: :landscape)
-browser = Watir::Browser.new driver
-browser.goto 'tiffany.com'
-browser.url.should == 'http://m.tiffany.com/International.aspx'
-
-The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; 
-portrait and landscape orientations are also available.
-" />
-    <meta property="og:description" content="There is an effort underway to implement a Watir API wrapper for Appium to test Native Mobile Applications.
-If you are interested in helping out, let us know.
-
-
-
-
-There are three options for using Watir to test mobile sites:
-
-
-  Running tests against an embedded browser on a real device;
-  Running tests against an embedded browser on a device emulator on a desktop machine; or
-  Running tests against a desktop browser that is configured with the same resolution and user-agent credentials as a mobile browser.
-
-
-Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. 
-There are documented details on setting up the iOS driver here 
-and Android here. 
-Using a real Apple device requires an Apple developer account which costs around $99.
-
-A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. 
-This is extremely easy to do with the webdriver-user-agent gem:
-
-require 'watir'
-require 'webdriver-user-agent'
-driver = Webdriver::UserAgent.driver(browser: :chrome, agent: :iphone, orientation: :landscape)
-browser = Watir::Browser.new driver
-browser.goto 'tiffany.com'
-browser.url.should == 'http://m.tiffany.com/International.aspx'
-
-The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; 
-portrait and landscape orientations are also available.
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
 " />
     
+
+    
     <meta name="author" content="Watir Project" />
+    
 
     
     <meta property="og:title" content="Mobile Devices" />
